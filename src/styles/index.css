@@ -162,6 +162,26 @@ small{
     font-size: 0.75rem;
 }
 
+
+button.button.md{ 
+    width: 100px;
+    height: 30px;
+    border-radius: var(--border-radius-1);
+    margin: 0 8px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    &.primary{
+        /* background-color: var(--color-primary); */
+        
+        background: linear-gradient(90deg, rgba(95,214,238,1) 9%, rgba(0,170,205,1) 100%);
+
+        color: var(--color-white);        
+    }
+}
+
 @media screen and (max-width: 1000px) {
     .container {
         width: 100%;
