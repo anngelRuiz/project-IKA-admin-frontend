@@ -1,0 +1,31 @@
+.clientNotFoundContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: var(--margin-top);
+}
+
+.clientNotFoundBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 450px;
+    height: 280px;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--card-border-radius);
+}
+
+.clientNotFoundBox h5{
+    font-size: 2rem;
+    text-transform: uppercase;
+
+    margin-top: var(--margin-top-space);
+}
+
+
+.clientNotFoundBox img {
+    width: 100px;
+    height: 100px;
+}

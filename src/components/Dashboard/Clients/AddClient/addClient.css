@@ -1,0 +1,249 @@
+.containerCenter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+
+  margin-top: 2rem;
+}
+
+.containerForm{
+  width: 70%;
+  background-color: var(--color-white);  
+  border-radius: var(--border-radius-2);
+
+  box-shadow: var(--box-shadow);
+
+  .pageTitle{
+    margin: 15px 0 0 15px;    
+  }
+}
+
+.btn-blue{
+  color: red;
+  background-color: red;
+}
+
+form.formAddClient {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+    width: 100%;
+    padding: 15px 15px;
+}
+
+form.formAddClient > :last-child {
+    grid-column: 1 / -1; /* Span from the first column to the last column */
+}
+
+form.formAddClient .inputGroup{
+    display: flex;
+    flex-direction: column;    
+    /* margin: 10px 0; */
+    margin: 10px 0 5px 0;
+    height: 70px;
+}
+
+form.formAddClient input, select{
+    width: 100%;
+    height: 40px;
+    background-color: var(--color-white);
+    padding-left: 15px;
+    border-radius: var(--border-radius-1);
+    border: 1px solid var(--color-border);
+
+    color: var(--color-dark);
+
+    /* 
+    light #f1f1f1
+    dark #3a3a3a */
+}
+
+form.formAddClient .inputGroup span{
+  visibility: hidden;
+}
+
+form.formAddClient .field-warning label, form.formAddClient .field-warning span{
+  color: #fa5a5a;
+  visibility: visible;
+}
+
+form.formAddClient .field-warning input,form.formAddClient .field-warning select {  
+  border: 1px solid #fa5a5a;
+}
+
+form.formAddClient input::placeholder, select, input[type="date"]{
+    font-weight: 300;
+    color: var(--color-info-dark);
+}
+
+form.formAddClient input[type="date"]{
+    padding-right: 15px; 
+}
+
+form.formAddClient input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 2px;
+    opacity: 0.8;
+    filter: invert(0.1);
+    color-scheme: dark;
+}
+
+[data-theme="light"] form.formAddClient input[type="date"]::-webkit-calendar-picker-indicator{
+  color-scheme: light;
+}
+
+[data-theme="dark"] form.formAddClient input[type="date"]::-webkit-calendar-picker-indicator{
+  color-scheme: dark;
+}
+  
+form.formAddClient input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1
+}
+
+form.formAddClient input[type="file"]{
+    padding: 10px;    
+}
+
+form.formAddClient input[type="file"]::-webkit-file-upload-button{    
+    border: 1px solid #b9b9b9;
+    border-radius: 3px;
+}
+
+/*select.avatar option[value="male"]   { background-image:url(../../../../images/users-profile/client-man.png);   }*/
+/*select.avatar option[value="female"] { background-image:url(../../../../images/users-profile/client-woman.png); }*/
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .custom-dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+.formBoxButtons{
+    display: flex;
+    justify-content: end;
+}
+
+.formBoxButtons button{ 
+    width: 100px;
+    height: 30px;
+    border-radius: var(--border-radius-1);
+    margin: 0 8px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.formBoxButtons button.cancel {
+    background-color: var(--color-white);
+    color: var(--color-info-dark);
+    border: 1px solid #b9b9b9;
+}
+
+.formBoxButtons button.submit{
+    color: white;
+    background-color: #1cbbdb;
+}
+/* SELECT */
+.select-sim {
+    width:200px;
+    height:22px;
+    line-height:22px;
+    vertical-align:middle;
+    position:relative;
+    background:white;
+    border:1px solid #ccc;
+    overflow:hidden;
+  }
+  
+  .select-sim::after {
+    content:"▼";
+    font-size:0.5em;
+    font-family:arial;
+    position:absolute;
+    top:50%;
+    right:5px;
+    transform:translate(0, -50%);
+  }
+  
+  .select-sim:hover::after {
+    content:"";
+  }
+  
+  .select-sim:hover {
+    overflow:visible;
+  }
+  
+  .select-sim:hover .options .option label {
+    display:inline-block;
+  }
+  
+  .select-sim:hover .options {
+    background:white;
+    border:1px solid #ccc;
+    position:absolute;
+    top:-1px;
+    left:-1px;
+    width:100%;
+    height:88px;
+    overflow-y:scroll;
+  }
+  
+  .select-sim .options .option {
+    overflow:hidden;
+  }
+  
+  .select-sim:hover .options .option {
+    height:22px;
+    overflow:hidden;
+  }
+  
+  .select-sim .options .option img {
+    vertical-align:middle;
+  }
+  
+  .select-sim .options .option label {
+    display:none;
+  }
+  
+  .select-sim .options .option input {
+    width:0;
+    height:0;
+    overflow:hidden;
+    margin:0;
+    padding:0;
+    float:left;
+    display:inline-block;
+    /* fix specific for Firefox */
+    position: absolute;
+    left: -10000px;
+  }
+  
+  .select-sim .options .option input:checked + label {
+    display:block;
+    width:100%;
+  }
+  
+  .select-sim:hover .options .option input + label {
+    display:block;
+  }
+  
+  .select-sim:hover .options .option input:checked + label {
+    background:#fffff0;
+  }
+
+  .error-message {
+    color: #fa5a5a;
+    font-size: 0.875em;
+    margin-top: 0.25em;
+  }
