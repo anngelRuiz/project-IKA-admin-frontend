@@ -1,11 +1,9 @@
-import React, { useState } from'react';
+import React from'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import logingImg from '../../images/login-bg.svg';
+import logo from '../../images/logo-white.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faGoogle, faSquareTwitter } from '@fortawesome/free-brands-svg-icons';
-// import { faUser, faLock } from '@fortawesome/free-core-svg-icons';
-// import { faUser, faLock } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 
 import './login.css';
@@ -13,7 +11,11 @@ import './login.css';
 const Login = () => {
 
     return (
-        <div className='containerCenter'>                        
+        <div className='containerCenter login'>
+            <div className="loginTitle">
+                <img src={logo}></img>
+                <h3>IKA CLIMBING</h3>
+            </div>
             <div className='contiainerLogin'>
                 <div class="leftPanel">
                     <img src={logingImg} alt="Campfire"></img>
@@ -30,7 +32,7 @@ const Login = () => {
                             <input type="password" placeholder='Password' />
                         </div>
                         <span>Recovery password</span>
-                        <button className='button md primary'>Login</button>
+                        <Link className="button md primary" to="dashboard">Login</Link>
                     </form>
 
                     <hr></hr>

@@ -163,7 +163,10 @@ small{
 }
 
 
-button.button.md{ 
+.button.md{ 
+    display: flex;    
+    justify-content: center;
+    align-items: center;
     width: 100px;
     height: 30px;
     border-radius: var(--border-radius-1);
@@ -172,10 +175,9 @@ button.button.md{
     font-weight: 600;
 
     cursor: pointer;
+    box-shadow: var(--box-shadow);
 
-    &.primary{
-        /* background-color: var(--color-primary); */
-        
+    &.primary{        
         background: linear-gradient(90deg, rgba(95,214,238,1) 9%, rgba(0,170,205,1) 100%);
 
         color: var(--color-white);        

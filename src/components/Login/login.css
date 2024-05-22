@@ -4,8 +4,37 @@
     align-items: center;
     height: 100vh;
     margin: 0;    
-    background: linear-gradient(90deg, rgba(110,218,240,1) 9%, rgba(0,170,205,1) 100%);    
+    
 }
+
+& .login {
+    background: linear-gradient(90deg, rgba(110,218,240,1) 9%, rgba(0,170,205,1) 100%);
+}
+
+
+.loginTitle{    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+  
+    width: 700px;
+    margin: -50px 0 20px 0;
+  
+    color: var(--color-white);
+    /* color: var(--color-primary); */
+
+    & img{
+        width: 100px;
+        height: 100%;
+    }
+
+    & h3{
+        font-size: 3.2rem;
+    }
+  }
+  
 
 .contiainerLogin{
     display: grid;
