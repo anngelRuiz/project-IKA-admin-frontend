@@ -162,6 +162,15 @@ small{
     font-size: 0.75rem;
 }
 
+.containerCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;       
+}
+
 
 .button.md{ 
     display: flex;    

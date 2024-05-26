@@ -1,13 +1,4 @@
-.containerCenter{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;    
-    
-}
-
-& .login {
+.login {
     background: linear-gradient(90deg, rgba(110,218,240,1) 9%, rgba(0,170,205,1) 100%);
 }
 
