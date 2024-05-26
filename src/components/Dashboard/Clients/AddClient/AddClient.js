@@ -118,7 +118,7 @@ const AddClient = ({ onCancel}) => {
     
 
     return(        
-        <div className='containerCenter'>
+        <div className='containerCenter addClient'>
             <div className='containerForm'>
                 <h2 className='pageTitle'>Add Climber</h2>
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
