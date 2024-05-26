@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import Select from './Select'
 import avatarMan from '../../../../images/users-profile/client-man.png';
 import Swal from 'sweetalert2';
-import { useFormik } from 'formik';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-
 import './addClient.css'; 
 
 const AddClient = ({ onCancel}) => {
@@ -19,7 +16,7 @@ const AddClient = ({ onCancel}) => {
         age: '',
         gender: '',
         birthday: '',
-      };
+    };
 
       const validationSchema = Yup.object({
         firstName: Yup.string().required('First name is required'),
@@ -31,92 +28,42 @@ const AddClient = ({ onCancel}) => {
         birthday: Yup.date().max(new Date(), 'Birthday cannot be in the future').required('Birthday is required'),
       });
 
-      const onSubmit = (values, { resetForm }) => {
-        console.log('Form data', values);
-        // Perform your submission logic here, then reset the form
-        resetForm();
-      };
-    
+      const onSubmit = async (values, { resetForm }) => {
+        console.log('Form data', values);                
+        try{
+            // const response = await axios.post('http://localhost:8080/clients/', {
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     }
+            // });
+
+            //console.log('User added successfully:', response.data);
+
+            Swal.fire({
+                icon: 'success',
+                title: 'User added successfully!',
+                showConfirmButton: true,
+                confirmButtonColor: "#1cbbdb"                
+            });
+            
+            resetForm();
+        }catch(error){
+            console.error('Error adding climber: ', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Failed to add user. Please try again later.',
+                showConfirmButton: true,
+                confirmButtonColor: "#1cbbdb"
+            });
+        }
+    };
+
 
     const handleCancel = () => {
-        onCancel(); // Call onCancel function passed from the parent component
+        onCancel();
     };
     
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-
-    //     const userData = {
-    //         firstName: firstName,
-    //         lastName: lastName,
-    //         email: email,
-    //         phone: phone,
-    //         age: age,
-    //         gender: gender,
-    //         birthday: birthday
-    //     };
-
-    //     console.log('User data: ', userData);
-    // };
-
-    // const handleSubmit2 = async (e) => {
-    //     e.preventDefault();
-        
-    //     const userData = {
-    //         firstName: firstName,
-    //         lastName: lastName,
-    //         email: email,
-    //         phone: phone,
-    //         age: age,
-    //         gender: gender,
-    //         birthday: birthday
-    //     };
-
-    //     try{            
-    //         if(!firstName.trim() || !lastName.trim() || !gender.trim()){
-    //             setShowWarning(true);
-    //             return;
-    //         }
-
-    //         const response = await axios.post('http://localhost:8080/clients/', {
-    //             headers: {
-    //               'Content-Type': 'application/json'
-    //             }
-    //           });
-
-    //         console.log('User added successfully:', response.data);
-
-
-    //         Swal.fire({
-    //             icon: 'success',
-    //             title: 'User added successfully!',
-    //             showConfirmButton: true,
-    //             confirmButtonColor: "#1cbbdb"                
-    //         });
-
-    //         setFormData({
-    //             firstName: '',
-    //             lastName: '',
-    //             email: '',
-    //             phone: '',
-    //             age: '',
-    //             gender: '',
-    //             birthday: ''
-    //         });
-    //         setShowWarning(false);
-    //     }catch(error){
-    //         console.error('Error adding climber: ', error);
-    //         Swal.fire({
-    //             icon: 'error',
-    //             title: 'Error',
-    //             text: 'Failed to add user. Please try again later.',
-    //             showConfirmButton: true,
-    //             confirmButtonColor: "#1cbbdb"                
-    //         });
-    //     }
-        
-    // };
-    
-
     return(        
         <div className='containerCenter addClient'>
             <div className='containerForm'>
