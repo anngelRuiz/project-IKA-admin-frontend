@@ -50,20 +50,20 @@ form.formAddClient input, select{
     border-radius: var(--border-radius-1);
     border: 1px solid var(--color-border);
 
-    color: var(--color-dark);
+    color: var(--color-info-dark);
 
     /* 
     light #f1f1f1
     dark #3a3a3a */
 }
 
-form.formAddClient .inputGroup span{
+form.formAddClient .inputGroup span.optional{
   visibility: hidden;
 }
 
 form.formAddClient .field-warning label, form.formAddClient .field-warning span{
   color: #fa5a5a;
-  visibility: visible;
+  /* visibility: visible; */
 }
 
 form.formAddClient .field-warning input,form.formAddClient .field-warning select {  

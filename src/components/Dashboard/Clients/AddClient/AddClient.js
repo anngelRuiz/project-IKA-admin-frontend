@@ -92,30 +92,30 @@ const AddClient = ({ onCancel}) => {
                                 <ErrorMessage name="gender" component="div" className="error-message"/>
                             </div>
                             <div className='inputGroup'>
-                                <label htmlFor="email">Email <span className='light'>(Optional)</span></label>
+                                <label htmlFor="email">Email <span className='light optional'>(Optional)</span></label>
                                 <Field type="email" id="email" name="email" placeholder="e.g jhonwick@outlook.com"/>
                                 <ErrorMessage name="email" component="div" className="error-message"/>
                             </div>
                             <div className='inputGroup'>
-                                <label htmlFor="phone">Phone <span className='light'>(Optional)</span></label>
+                                <label htmlFor="phone">Phone <span className='light optional'>(Optional)</span></label>
                                 <Field type="text" id="phone" name="phone" placeholder="e.g 636-123-45-67"/>
                                 <ErrorMessage name="phone" component="div" className="error-message"/>
                             </div>
                             <div className='inputGroup'>
-                                <label htmlFor="age">Age <span className='light'>(Optional)</span> </label>
+                                <label htmlFor="age">Age <span className='light optional'>(Optional)</span> </label>
                                 <Field type="number" id="age" name="age" placeholder="e.g 21"/>
                                 <ErrorMessage name="age" component="div" className="error-message"/>
                             </div>
                             
                             <div className='inputGroup'>
-                                <label htmlFor="birthday">Birthday <span className='light'>(Optional)</span></label>                                
+                                <label htmlFor="birthday">Birthday <span className='light optional'>(Optional)</span></label>                                
                                 <Field type="date" id="birthday" name="birthday"/>
                                 <ErrorMessage name="birthday" component="div" className="error-message"/>
                             </div>
-                            {/* <div className='inputGroup'>
+                            <div className='inputGroup'>
                                 <label>Avatar</label>
-                                <Select></Select>
-                            </div> */}
+                                <Select></Select>                                
+                            </div>
 
                             <div className='formBoxButtons'>
                                 <button className='cancel' onClick={handleCancel}>Canel</button>

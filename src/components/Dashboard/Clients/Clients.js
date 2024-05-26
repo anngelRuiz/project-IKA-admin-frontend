@@ -69,12 +69,7 @@ const Clients = () => {
                                 <button className={`clearInputButton ${showClearButton ? 'show' : ''}`} type="reset" aria-label="Clear search" title="Clear seach" onClick={clearInput}>x</button>
                             </div>
                             
-                            {/* <div className="addBtnBox">                                                                                      
-                                <button className="addBtn" aria-label="Add Button" title="Add Client" onClick={toggleAddClient}><span className="material-icons-sharp">add</span></button>
-                            </div> */}
                             <button className="add" aria-label="Add Button" title="Add Client" onClick={toggleAddClient}><span className="material-icons-sharp">add</span></button>
-                            {/* <button className="btnWhite" aria-label="Add Button" title="Add Client" onClick={toggleAddClient}><span className="material-icons-sharp">add</span></button> */}
-
                         </div>
                         {filteredClients.length == 0 && searchInput.trim() !== ''? (<ClientNotFound/>) : (
                         <table>

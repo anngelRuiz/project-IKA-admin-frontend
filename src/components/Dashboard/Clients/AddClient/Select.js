@@ -1,28 +1,50 @@
-import {useRef, useEffect} from 'react';
+import {useRef, useEffect, useState} from 'react';
+import clientWomanImg from '../../../../images/users-profile/client-woman.png';
+import clientManImg from '../../../../images/users-profile/client-man.png';
 import './select.css';
 
 const Select = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedOption, setSelectedOption] = useState('Select your option');
+    const [selectedImg, setSelectedImg] = useState(null);
+
+    const options = [
+        { label: 'Man', imgSrc: clientManImg },
+        { label: 'Woman', imgSrc: clientWomanImg }
+    ];
+
+    const toggleOptions = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const handleOptionClick = (optionLabel, optionImg) => {
+        setSelectedOption(optionLabel);
+        setSelectedImg(optionImg);
+        setIsOpen(false);
+    };
 
     return (
-        <>
-            <select class="vodiapicker">
-                <option value="en" class="test" data-thumbnail="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/LetterA.svg/2000px-LetterA.svg.png">English</option>
-                <option value="au" data-thumbnail="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/NYCS-bull-trans-B.svg/480px-NYCS-bull-trans-B.svg.png">Engllish (AU)</option>
-                <option value="uk" data-thumbnail="https://glot.io/static/img/c.svg?etag=ZaoLBh_p">Chinese (Simplified)</option>
-                <option value="cn" data-thumbnail="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/NYCS-bull-trans-D.svg/2000px-NYCS-bull-trans-D.svg.png">German</option>
-                <option value="de" data-thumbnail="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/MO-supp-E.svg/600px-MO-supp-E.svg.png">Danish</option>
-                <option value="dk" data-thumbnail="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/F_icon.svg/267px-F_icon.svg.png">French</option>
-                <option value="fr" data-thumbnail="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2000px-Google_%22G%22_Logo.svg.png">Greek</option>
-                <option value="gr" data-thumbnail="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/4H_Emblem.svg/1000px-4H_Emblem.svg.png">Italian</option>
-        </select>
+        <div className='selectMenu'>            
+            <div className='selectBtn' onClick={toggleOptions}>
+                {selectedImg && <img src={selectedImg} alt={selectedOption} className='selectedImg' />} 
+                <span className='sBtnText'>{selectedOption}</span>                
+                <span className="material-icons-sharp icon">keyboard_arrow_down</span>
+            </div>
 
-            <div class="lang-select">
-            <button class="btn-select" value=""></button>
-            <div class="b">
-            <ul id="a"></ul>
-            </div>
-            </div>
-        </>
+            {isOpen && (
+                <ul className='options'>
+                    {options.map((option, index) => (                    
+                        <li key={index} className='option'
+                            onClick={()  => handleOptionClick(option.label, option.imgSrc)}
+                        >
+                            <img src={option.imgSrc} alt='option.label'></img>
+                            <span className='optionText'>{option.label}</span>
+                        </li>               
+                    ))}
+                </ul>               
+            )}
+            
+        </div>
     );
 }
 
