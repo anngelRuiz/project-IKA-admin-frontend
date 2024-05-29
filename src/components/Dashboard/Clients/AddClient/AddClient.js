@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Select from './Select'
-import avatarMan from '../../../../images/users-profile/client-man.png';
+import clientManImg from '../../../../images/users-profile/client-man.png';
+import userAvatarImg from '../../../../images/news/usuario.png';
 import Swal from 'sweetalert2';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -69,60 +70,77 @@ const AddClient = ({ onCancel}) => {
             <div className='containerForm'>
                 <h2 className='pageTitle'>Add Climber</h2>
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-                    {({ handleReset }) => (
-                        <Form className='formAddClient' >                    
-                            <div className="inputGroup">
-                                <label htmlFor="firstName">First Name</label>
-                                <Field  type="text" id="firstName" name="firstName" placeholder="e.g Jhon"/>                                
-                                <ErrorMessage name="firstName" component="div" className="error-message"/>
-                            </div>
-                            <div className="inputGroup">
-                                <label htmlFor="lastName">Last Name</label>
-                                <Field type="text" id="lastName" name="lastName" placeholder="e.g Wick"/>                                
-                                <ErrorMessage name="lastName" component="div" className="error-message"/>
-                            </div>
-                            <div className="inputGroup">
-                                <label htmlFor="gender">Gener</label>
-                                <Field as="select" id="gender" name="gender">
-                                    <option value="" disabled selected>Select Gender</option>   
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
-                                </Field>                                
-                                <ErrorMessage name="gender" component="div" className="error-message"/>
-                            </div>
-                            <div className='inputGroup'>
-                                <label htmlFor="email">Email <span className='light optional'>(Optional)</span></label>
-                                <Field type="email" id="email" name="email" placeholder="e.g jhonwick@outlook.com"/>
-                                <ErrorMessage name="email" component="div" className="error-message"/>
-                            </div>
-                            <div className='inputGroup'>
-                                <label htmlFor="phone">Phone <span className='light optional'>(Optional)</span></label>
-                                <Field type="text" id="phone" name="phone" placeholder="e.g 636-123-45-67"/>
-                                <ErrorMessage name="phone" component="div" className="error-message"/>
-                            </div>
-                            <div className='inputGroup'>
-                                <label htmlFor="age">Age <span className='light optional'>(Optional)</span> </label>
-                                <Field type="number" id="age" name="age" placeholder="e.g 21"/>
-                                <ErrorMessage name="age" component="div" className="error-message"/>
-                            </div>
-                            
-                            <div className='inputGroup'>
-                                <label htmlFor="birthday">Birthday <span className='light optional'>(Optional)</span></label>                                
-                                <Field type="date" id="birthday" name="birthday"/>
-                                <ErrorMessage name="birthday" component="div" className="error-message"/>
-                            </div>
-                            <div className='inputGroup'>
-                                <label>Avatar</label>
-                                <Select></Select>                                
-                            </div>
+                    {({ handleReset }) => {
+                        return (
+                            <Form className='formAddClient'>
+                                <div className="inputGroup">
+                                    <label htmlFor="firstName">First Name</label>
+                                    <Field type="text" id="firstName" name="firstName" placeholder="e.g Jhon" />
+                                    <ErrorMessage name="firstName" component="div" className="error-message" />
+                                </div>
+                                <div className="inputGroup">
+                                    <label htmlFor="lastName">Last Name</label>
+                                    <Field type="text" id="lastName" name="lastName" placeholder="e.g Wick" />
+                                    <ErrorMessage name="lastName" component="div" className="error-message" />
+                                </div>
+                                <div className="inputGroup">
+                                    <label htmlFor="gender">Gener</label>
+                                    <Field as="select" id="gender" name="gender">
+                                        <option value="" disabled selected>Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </Field>
+                                    <ErrorMessage name="gender" component="div" className="error-message" />
+                                </div>
+                                <div className='inputGroup'>
+                                    <label htmlFor="email">Email <span className='light optional'>(Optional)</span></label>
+                                    <Field type="email" id="email" name="email" placeholder="e.g jhonwick@outlook.com" />
+                                    <ErrorMessage name="email" component="div" className="error-message" />
+                                </div>
+                                <div className='inputGroup'>
+                                    <label htmlFor="phone">Phone <span className='light optional'>(Optional)</span></label>
+                                    <Field type="text" id="phone" name="phone" placeholder="e.g 636-123-45-67" />
+                                    <ErrorMessage name="phone" component="div" className="error-message" />
+                                </div>
+                                <div className='inputGroup'>
+                                    <label htmlFor="birthday">Birthday <span className='light optional'>(Optional)</span></label>
+                                    <Field type="date" id="birthday" name="birthday" />
+                                    <ErrorMessage name="birthday" component="div" className="error-message" />
+                                </div>
+                                <div className='inputGroup half'>
+                                    <div className='half4'>
+                                        <label htmlFor="age">Age <span className='light optional'>(Optional)</span> </label>
+                                        <Field type="number" id="age" name="age" placeholder="e.g 21" />
+                                        <ErrorMessage name="age" component="div" className="error-message" />
+                                    </div>
 
-                            <div className='formBoxButtons'>
-                                <button className='cancel' onClick={handleCancel}>Canel</button>
-                                <button type='submit' className='submit'>Add</button>
-                            </div>                    
-                    </Form>
-                    )}
+                                    <div className='half6'>
+                                        <label>Avatar</label>
+                                        <div className='inputGroupAvatar'>
+                                            <img src={userAvatarImg} alt='Man'></img>
+                                            <Select></Select>
+                                            {/* <img src={clientManImg} alt='Man'></img> */}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                {/* <div className='inputGroup'>
+                                    <label>Avatar</label>
+                                    <div className='inputGroupAvatar'>
+                                        <img src={clientManImg} alt='Man'></img>
+                                        <Select></Select>
+                                        <img src={clientManImg} alt='Man'></img>
+                                    </div>
+                                </div> */}
+
+                                <div className='formBoxButtons'>
+                                    <button className='cancel' onClick={handleCancel}>Canel</button>
+                                    <button type='submit' className='submit'>Add</button>
+                                </div>
+                            </Form>
+                        );
+                    }}
                 </Formik>
             </div>
         </div>

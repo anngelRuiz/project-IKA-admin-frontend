@@ -5,7 +5,7 @@ import './select.css';
 
 const Select = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState('Select your option');
+    const [selectedOption, setSelectedOption] = useState('Select Avatar');
     const [selectedImg, setSelectedImg] = useState(null);
 
     const options = [
@@ -26,7 +26,7 @@ const Select = () => {
     return (
         <div className='selectMenu'>            
             <div className='selectBtn' onClick={toggleOptions}>
-                {selectedImg && <img src={selectedImg} alt={selectedOption} className='selectedImg' />} 
+                {/* {selectedImg && <img src={selectedImg} alt={selectedOption} className='selectedImg' />}  */}
                 <span className='sBtnText'>{selectedOption}</span>                
                 <span className="material-icons-sharp icon">keyboard_arrow_down</span>
             </div>

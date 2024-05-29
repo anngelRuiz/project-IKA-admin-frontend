@@ -36,10 +36,22 @@ form.formAddClient > :last-child {
 
 form.formAddClient .inputGroup{
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     /* margin: 10px 0; */
     margin: 10px 0 5px 0;
     height: 70px;
+
+    &.half{      
+      flex-direction: row;      
+
+      & .half4 {
+        width: 40%;
+      }
+    
+      & .half6 {
+        width: 60%;
+      }
+    }    
 }
 
 form.formAddClient input, select{
@@ -151,6 +163,20 @@ form.formAddClient input[type="file"]::-webkit-file-upload-button{
     color: white;
     background-color: #1cbbdb;
 }
+
+.inputGroupAvatar{
+  display: flex;
+  justify-content: space-between;
+
+  margin-right: 30px;
+  margin: 0 0 0 5px;
+
+  & img{
+    width: 40px;
+    height: 40px;
+  }
+}
+
 /* SELECT */
 .select-sim {
     width:200px;
