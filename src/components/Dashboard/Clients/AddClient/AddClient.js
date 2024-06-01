@@ -123,16 +123,7 @@ const AddClient = ({ onCancel}) => {
                                             {/* <img src={clientManImg} alt='Man'></img> */}
                                         </div>
                                     </div>
-                                </div>
-                                
-                                {/* <div className='inputGroup'>
-                                    <label>Avatar</label>
-                                    <div className='inputGroupAvatar'>
-                                        <img src={clientManImg} alt='Man'></img>
-                                        <Select></Select>
-                                        <img src={clientManImg} alt='Man'></img>
-                                    </div>
-                                </div> */}
+                                </div>                        
 
                                 <div className='formBoxButtons'>
                                     <button className='cancel' onClick={handleCancel}>Canel</button>

@@ -28,6 +28,7 @@ form.formAddClient {
     row-gap: 10px;
     width: 100%;
     padding: 15px 15px;
+    
 }
 
 form.formAddClient > :last-child {
@@ -41,8 +42,8 @@ form.formAddClient .inputGroup{
     margin: 10px 0 5px 0;
     height: 70px;
 
-    &.half{      
-      flex-direction: row;      
+    &.half{
+      flex-direction: row;
 
       & .half4 {
         width: 40%;
@@ -50,8 +51,16 @@ form.formAddClient .inputGroup{
     
       & .half6 {
         width: 60%;
+        margin-left: 5%;
       }
-    }    
+    }
+}
+
+@media (max-width: 1024px){
+
+  form.formAddClient > .inputGroup.half {
+    grid-column: 1/-1;
+  }
 }
 
 form.formAddClient input, select{
@@ -270,3 +279,4 @@ form.formAddClient input[type="file"]::-webkit-file-upload-button{
     font-size: 0.875em;
     margin-top: 0.25em;
   }
+
