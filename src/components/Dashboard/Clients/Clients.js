@@ -5,10 +5,12 @@ import clientManImg from '../../../images/users-profile/client-man.png';
 import axios from 'axios';
 import ClientNotFound from './ClientNotFound/ClientNotFound';
 import AddClient from './AddClient/AddClient';
+import ViewClient from './ViewClient/ViewClient';
 
 const Clients = () => {
 
     const [showAddClient, setShowAddClient] = useState(false);
+    const [showViewClient, setShowViewClient] = useState(false);
     const [clients, setClients] = useState([]);
     const [searchInput, setSearchInput] = useState('');
     const [filteredClients, setFilteredClients] = useState(clients);
@@ -45,8 +47,12 @@ const Clients = () => {
     };
 
     const toggleAddClient = () => {
-        console.log("showAddClient");
         setShowAddClient(!showAddClient);
+    };
+
+    const toggleViewClient = () => {
+        console.log("showViewClient");
+        setShowViewClient(!showAddClient);
     };
     
     const clearInput = () => {
@@ -68,7 +74,8 @@ const Clients = () => {
                                 <input className="seachInput" ype="text" placeholder="Search climber" value={searchInput} onChange={handleSearch}/>
                                 <button className={`clearInputButton ${showClearButton ? 'show' : ''}`} type="reset" aria-label="Clear search" title="Clear seach" onClick={clearInput}>x</button>
                             </div>
-                            
+
+                            <button className="add" aria-label="Add Button" title="Add Client" onClick={toggleViewClient}><span className="material-icons-sharp">visibility</span></button>                           
                             <button className="add" aria-label="Add Button" title="Add Client" onClick={toggleAddClient}><span className="material-icons-sharp">add</span></button>
                         </div>
                         {filteredClients.length == 0 && searchInput.trim() !== ''? (<ClientNotFound/>) : (
