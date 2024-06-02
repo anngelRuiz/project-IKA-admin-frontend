@@ -49,11 +49,13 @@ body{
     --color-background: #f6f6f9;
     --color-light-soft: #b5bdc5;
 
-    --color-border: #f1f1f1;    
+    --color-border: #f1f1f1;
+
+    --color-hover: #f0f0f0;
 
     --color-status-good: #4cdbf9;
     --color-status-pay: #f15a67;
-    --color-status-pending: #f7cf92;    
+    --color-status-pending: #f7cf92;
 
     --card-border-radius: 1.0rem; /*1.5rem*/
     --border-radius-1: 0.4rem;
@@ -76,6 +78,7 @@ body{
     --color-white: #202528;
     --color-dark: #edeffd;
     --color-dark-variant: #a3bdcc;
+    --color-hover: #2b2c31;    
     --color-light: rgba(0, 0, 0, 0.4);
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
@@ -84,6 +87,7 @@ body{
     --color-background: #181a1e;
     --color-white: #202528;
     --color-dark: #edeffd;
+    --color-hover: #2b2c31;
     --color-dark-variant: #a3bdcc;
     --color-light: rgba(0, 0, 0, 0.4);
     --color-border: #3a3a3a;    
@@ -138,7 +142,6 @@ img{
 h1{
     font-weight: 800;
     font-size: 1.8rem;
-
 }
 
 h2{
@@ -170,8 +173,16 @@ small{
     margin: 0;       
 }
 
+.mt20{
+    margin-top: 20px;
+}
+
+.mb20{
+    margin-bottom: 20px;
+}
+
 .button.md{ 
-    display: flex;    
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 100px;

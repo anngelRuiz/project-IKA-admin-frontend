@@ -21,7 +21,7 @@ const Login = () => {
                     <img src={logingImg} alt="Campfire"></img>
                 </div>
                 <div class="rightPanel">
-                    <h5>LOGIN</h5>
+                    <h5 className='mt20'>LOGIN</h5>
                     <form>
                         <div class="input-container">
                             <FontAwesomeIcon icon={faUser} className="fa"/>
@@ -38,7 +38,7 @@ const Login = () => {
                     <hr></hr>
                     <p>Or continue with:</p>
 
-                    <div className='loginBrandIcons'>
+                    <div className='loginBrandIcons mb20'>
                         <div className="brandIcon"><FontAwesomeIcon icon={faFacebookSquare} size="2x" title="Facebook"/></div>
                         <div className="brandIcon"><FontAwesomeIcon icon={faGoogle} size="2x" title="Google"/></div>
                         <div className="brandIcon"><FontAwesomeIcon icon={faSquareTwitter} size="2x" title="Twitter"/></div>

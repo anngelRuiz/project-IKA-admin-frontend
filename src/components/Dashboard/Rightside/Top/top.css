@@ -25,6 +25,11 @@
     width: 4.2rem;
     
     border-radius: var(--border-radius-1);
+
+    & input[type="checkbox"]{
+        appearance: none;
+    }
+    
 }
 
 .right .theme-toggler label{

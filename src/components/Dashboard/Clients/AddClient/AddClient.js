@@ -17,6 +17,7 @@ const AddClient = ({ onCancel}) => {
         age: '',
         gender: '',
         birthday: '',
+        avatar: '',
     };
 
       const validationSchema = Yup.object({
@@ -27,6 +28,7 @@ const AddClient = ({ onCancel}) => {
         age: Yup.number().min(1, 'Age must be at least 1').max(120, 'Age must be at most 120').required('Age is required'),
         gender: Yup.string().oneOf(['male', 'female', 'other'], 'Invalid gender').required('Gender is required'),
         birthday: Yup.date().max(new Date(), 'Birthday cannot be in the future').required('Birthday is required'),
+        avatar: Yup.string().oneOf(['man', 'woman', 'other'], 'Invalid avatar').required('Avatar is required'),
       });
 
       const onSubmit = async (values, { resetForm }) => {
@@ -60,7 +62,6 @@ const AddClient = ({ onCancel}) => {
         }
     };
 
-
     const handleCancel = () => {
         onCancel();
     };
@@ -73,6 +74,7 @@ const AddClient = ({ onCancel}) => {
                     {({ handleReset }) => {
                         return (
                             <Form className='formAddClient'>
+                                
                                 <div className="inputGroup">
                                     <label htmlFor="firstName">First Name</label>
                                     <Field type="text" id="firstName" name="firstName" placeholder="e.g Jhon" />
@@ -84,9 +86,9 @@ const AddClient = ({ onCancel}) => {
                                     <ErrorMessage name="lastName" component="div" className="error-message" />
                                 </div>
                                 <div className="inputGroup">
-                                    <label htmlFor="gender">Gener</label>
+                                    <label htmlFor="gender">Gender</label>
                                     <Field as="select" id="gender" name="gender">
-                                        <option value="" disabled selected>Select Gender</option>
+                                        <option value="" disabled>Select Gender</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                         <option value="other">Other</option>
@@ -108,26 +110,23 @@ const AddClient = ({ onCancel}) => {
                                     <Field type="date" id="birthday" name="birthday" />
                                     <ErrorMessage name="birthday" component="div" className="error-message" />
                                 </div>
-                                <div className='inputGroup half'>
-                                    <div className='half4'>
-                                        <label htmlFor="age">Age <span className='light optional'>(Optional)</span> </label>
+                                <div className='inputGroup'>
+                                <label htmlFor="age">Age <span className='light optional'>(Optional)</span> </label>
                                         <Field type="number" id="age" name="age" placeholder="e.g 21" />
                                         <ErrorMessage name="age" component="div" className="error-message" />
+                                </div>
+                                <div className='inputGroup'>
+                                    <label>Avatar</label>
+                                    <div className='inputGroupAvatar'>
+                                        <img src={userAvatarImg} alt='Man'></img>
+                                        <Select></Select>                                        
                                     </div>
-
-                                    <div className='half6'>
-                                        <label>Avatar</label>
-                                        <div className='inputGroupAvatar'>
-                                            <img src={userAvatarImg} alt='Man'></img>
-                                            <Select></Select>
-                                            {/* <img src={clientManImg} alt='Man'></img> */}
-                                        </div>
-                                    </div>
-                                </div>                        
-
+                                    <ErrorMessage name="avatar" component="div" className="error-message" />
+                                </div>   
                                 <div className='formBoxButtons'>
                                     <button className='cancel' onClick={handleCancel}>Canel</button>
                                     <button type='submit' className='submit'>Add</button>
+                                    
                                 </div>
                             </Form>
                         );

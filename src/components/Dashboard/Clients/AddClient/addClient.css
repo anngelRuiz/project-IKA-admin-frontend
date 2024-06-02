@@ -41,22 +41,13 @@ form.formAddClient .inputGroup{
     /* margin: 10px 0; */
     margin: 10px 0 5px 0;
     height: 70px;
-
-    &.half{
-      flex-direction: row;
-
-      & .half4 {
-        width: 40%;
-      }
-    
-      & .half6 {
-        width: 60%;
-        margin-left: 5%;
-      }
-    }
 }
 
 @media (max-width: 1024px){
+
+  form.formAddClient{
+    grid-template-columns: 1fr;
+  }
 
   form.formAddClient > .inputGroup.half {
     grid-column: 1/-1;
@@ -70,34 +61,31 @@ form.formAddClient input, select{
     padding-left: 15px;
     border-radius: var(--border-radius-1);
     border: 1px solid var(--color-border);
-
-    color: var(--color-info-dark);
-
-    /* 
-    light #f1f1f1
-    dark #3a3a3a */
-}
-
-form.formAddClient .inputGroup span.optional{
-  visibility: hidden;
-}
-
-form.formAddClient .field-warning label, form.formAddClient .field-warning span{
-  color: #fa5a5a;
-  /* visibility: visible; */
-}
-
-form.formAddClient .field-warning input,form.formAddClient .field-warning select {  
-  border: 1px solid #fa5a5a;
-}
-
-form.formAddClient input::placeholder, select, input[type="date"]{
     font-weight: 300;
-    color: var(--color-info-dark);
+    color: var(--color-dark);
+
+    & option:not(:first-of-type) {
+      color: var(--color-dark);
+    }
+
+    & option:first-of-type {
+      color: var(--color-dark-variant);
+    }
 }
 
+form.formAddClient input::placeholder , select {
+  color:var(--color-dark-variant);
+}
+
+/* Input date */
 form.formAddClient input[type="date"]{
-    padding-right: 15px; 
+    padding-right: 15px;  
+    color: var(--color-dark-variant);
+}
+
+/* When you are selecting Date */
+input:focus::-webkit-datetime-edit {  
+  color: var(--color-info-dark); 
 }
 
 form.formAddClient input[type="date"]::-webkit-calendar-picker-indicator {
@@ -121,30 +109,6 @@ form.formAddClient input[type="date"]::-webkit-calendar-picker-indicator:hover {
     opacity: 1
 }
 
-form.formAddClient input[type="file"]{
-    padding: 10px;    
-}
-
-form.formAddClient input[type="file"]::-webkit-file-upload-button{    
-    border: 1px solid #b9b9b9;
-    border-radius: 3px;
-}
-
-/*select.avatar option[value="male"]   { background-image:url(../../../../images/users-profile/client-man.png);   }*/
-/*select.avatar option[value="female"] { background-image:url(../../../../images/users-profile/client-woman.png); }*/
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .custom-dropdown:hover .dropdown-content {
-    display: block;
-  }
 
 .formBoxButtons{
     display: flex;
@@ -183,100 +147,36 @@ form.formAddClient input[type="file"]::-webkit-file-upload-button{
   & img{
     width: 40px;
     height: 40px;
+    margin-right: 10px;
   }
 }
 
-/* SELECT */
-.select-sim {
-    width:200px;
-    height:22px;
-    line-height:22px;
-    vertical-align:middle;
-    position:relative;
-    background:white;
-    border:1px solid #ccc;
-    overflow:hidden;
-  }
-  
-  .select-sim::after {
-    content:"▼";
-    font-size:0.5em;
-    font-family:arial;
-    position:absolute;
-    top:50%;
-    right:5px;
-    transform:translate(0, -50%);
-  }
-  
-  .select-sim:hover::after {
-    content:"";
-  }
-  
-  .select-sim:hover {
-    overflow:visible;
-  }
-  
-  .select-sim:hover .options .option label {
-    display:inline-block;
-  }
-  
-  .select-sim:hover .options {
-    background:white;
-    border:1px solid #ccc;
-    position:absolute;
-    top:-1px;
-    left:-1px;
-    width:100%;
-    height:88px;
-    overflow-y:scroll;
-  }
-  
-  .select-sim .options .option {
-    overflow:hidden;
-  }
-  
-  .select-sim:hover .options .option {
-    height:22px;
-    overflow:hidden;
-  }
-  
-  .select-sim .options .option img {
-    vertical-align:middle;
-  }
-  
-  .select-sim .options .option label {
-    display:none;
-  }
-  
-  .select-sim .options .option input {
-    width:0;
-    height:0;
-    overflow:hidden;
-    margin:0;
-    padding:0;
-    float:left;
-    display:inline-block;
-    /* fix specific for Firefox */
-    position: absolute;
-    left: -10000px;
-  }
-  
-  .select-sim .options .option input:checked + label {
-    display:block;
-    width:100%;
-  }
-  
-  .select-sim:hover .options .option input + label {
-    display:block;
-  }
-  
-  .select-sim:hover .options .option input:checked + label {
-    background:#fffff0;
-  }
+.error-message {
+  color: #fa5a5a;
+  font-size: 0.875em;
+  margin-top: 0.25em;
+}
 
-  .error-message {
-    color: #fa5a5a;
-    font-size: 0.875em;
-    margin-top: 0.25em;
-  }
 
+/* CHECK */
+form.formAddClient .field-warning label, form.formAddClient .field-warning span{
+  color: #fa5a5a;
+  /* visibility: visible; */
+}
+
+form.formAddClient .field-warning input,form.formAddClient .field-warning select {  
+  border: 1px solid #fa5a5a;
+}
+
+form.formAddClient .inputGroup span.optional{
+  visibility: hidden;
+}
+
+/* form.formAddClient input[type="file"]{
+  padding: 10px;    
+}
+
+form.formAddClient input[type="file"]::-webkit-file-upload-button{    
+  border: 1px solid #b9b9b9;
+  border-radius: 3px;
+} */
