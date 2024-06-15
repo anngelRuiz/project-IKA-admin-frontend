@@ -1,9 +1,3 @@
-.addClient {
-  align-items: start;
-  background-color: var(--color-addClient);
-  flex-direction: row;
-}
-
 .containerForm{
   width: 80%;
   background-color: var(--color-white);  
@@ -12,7 +6,7 @@
   box-shadow: var(--box-shadow);
 
   .pageTitle{
-    margin: 15px 0 0 15px;    
+    margin: 15px 0 0 15px;
   }
 }
 
@@ -115,7 +109,7 @@ form.formAddClient input[type="date"]::-webkit-calendar-picker-indicator:hover {
     justify-content: end;
 }
 
-.formBoxButtons button{ 
+.formBoxButtons button, .formBoxButtons .btn.cancelBtn{ 
     width: 100px;
     height: 30px;
     border-radius: var(--border-radius-1);
@@ -126,10 +120,16 @@ form.formAddClient input[type="date"]::-webkit-calendar-picker-indicator:hover {
     cursor: pointer;
 }
 
-.formBoxButtons button.cancel {
+.formBoxButtons button.cancelBtn, .formBoxButtons .btn.cancelBtn {
     background-color: var(--color-white);
     color: var(--color-info-dark);
     border: 1px solid #b9b9b9;
+}
+
+.formBoxButtons .btn.cancelBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .formBoxButtons button.submit{

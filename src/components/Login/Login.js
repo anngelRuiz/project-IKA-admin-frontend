@@ -32,7 +32,7 @@ const Login = () => {
                             <input type="password" placeholder='Password' />
                         </div>
                         <span>Recovery password</span>
-                        <Link className="button md primary" to="dashboard">Login</Link>
+                        <Link className="button md primary" to="/dashboard">Login</Link>
                     </form>
 
                     <hr></hr>

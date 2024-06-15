@@ -42,7 +42,7 @@ aside h3{
     font-weight: 500;
 }
 
-aside .sidebar a{
+aside .sidebar .sidebar-link{
     display: flex;
     color: var(--color-info-dark);
     margin-left: 2rem;

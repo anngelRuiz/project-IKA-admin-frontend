@@ -3,7 +3,7 @@ import clientWomanImg from '../../../../images/users-profile/client-woman.png';
 import clientManImg from '../../../../images/users-profile/client-man.png';
 import './select.css';
 
-const Select = () => {
+const Select = ({onChange }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState('Select Avatar');
     const [selectedImg, setSelectedImg] = useState(null);
@@ -18,16 +18,19 @@ const Select = () => {
     };
 
     const handleOptionClick = (optionLabel, optionImg) => {
+        console.log("optionLabel: " + optionLabel);
+        console.log("optionImg: " + optionImg);
         setSelectedOption(optionLabel);
         setSelectedImg(optionImg);
         setIsOpen(false);
+        onChange(optionLabel);
     };
 
     return (
-        <div className='selectMenu'>            
+        <div className='selectMenu'>
             <div className='selectBtn' onClick={toggleOptions}>
                 {/* {selectedImg && <img src={selectedImg} alt={selectedOption} className='selectedImg' />}  */}
-                <span className='sBtnText'>{selectedOption}</span>                
+                <span className='sBtnText'>{selectedOption}</span>
                 <span className="material-icons-sharp icon">keyboard_arrow_down</span>
             </div>
 
@@ -39,9 +42,9 @@ const Select = () => {
                         >
                             <img src={option.imgSrc} alt='option.label'></img>
                             <span className='optionText'>{option.label}</span>
-                        </li>               
+                        </li>
                     ))}
-                </ul>               
+                </ul>
             )}
             
         </div>

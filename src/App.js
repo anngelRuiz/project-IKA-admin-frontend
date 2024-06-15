@@ -6,6 +6,8 @@ import Dashboard from './components/Dashboard/Dashboard';
 import AboutUs from './components/AboutUs/AboutUs';
 import ContactUs from './components/ContactUs/ContactUs';
 import ViewClient from './components/Dashboard/Clients/ViewClient/ViewClient';
+import AddClient from './components/Dashboard/Clients/AddClient/AddClient';
+import Top from './components/Dashboard/Rightside/Top/Top';
 
 const Layout = () => {
   const location = useLocation();
@@ -15,8 +17,9 @@ const Layout = () => {
 
   return (
     <div className="container" data-theme="light">
-        {!isLoginPage && <Sidebar />}
+        {!isLoginPage && <Sidebar />}        
         <Outlet />
+        {!isLoginPage && <Top />}
       </div>
   );
 };
@@ -26,11 +29,11 @@ function App() {
     <Router>
       <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Dashboard />} />
             <Route path="/dashboard" Component={Dashboard}/>
             <Route path="/aboutUs" Component={AboutUs}/>
             <Route path="/contactUs" Component={ContactUs}/>
-            <Route path="/viewUser" Component={ViewClient}/>
+            <Route path="/viewClient" Component={ViewClient}/>
+            <Route path="/addClient" Component={AddClient}/>
           </Route>
           <Route path="/login" Component={Login}/>
         </Routes>

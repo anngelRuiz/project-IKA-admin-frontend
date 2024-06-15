@@ -6,17 +6,18 @@
     overflow: hidden;
 }
 
-.right .top{
+.top{
     display: flex;
     justify-content: end;
+    margin-top: 1.4em;
     gap: 2rem;    
 }
 
-.right .top button{
+.top button{
     display: none;
 }
 
-.right .theme-toggler{
+.theme-toggler{
     background-color: var(--color-light);
     display: flex;
     justify-content: space-between;
@@ -32,7 +33,7 @@
     
 }
 
-.right .theme-toggler label{
+.theme-toggler label{
     font-size: 1.2rem;
     width: 50%;
     height: 100%;
@@ -42,13 +43,13 @@
     cursor: pointer;    
 }
 
-.right .theme-toggler label.active{
+.theme-toggler label.active{
     background-color: var(--color-primary);
     color: white;
     border-radius: var(--border-radius-1);    
 }
 
-.right .top .profile{
+.top .profile{
     display: flex;
     gap: 2rem;
     text-align: right;

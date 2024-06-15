@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Select from './Select'
 import clientManImg from '../../../../images/users-profile/client-man.png';
 import userAvatarImg from '../../../../images/news/usuario.png';
 import Swal from 'sweetalert2';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, useFormik  } from 'formik';
 import * as Yup from 'yup';
 import './addClient.css'; 
 
-const AddClient = ({ onCancel}) => {
-
+const AddClient = () => {    
     const initialValues = {
         firstName: '',
         lastName: '',
@@ -28,11 +28,11 @@ const AddClient = ({ onCancel}) => {
         age: Yup.number().min(1, 'Age must be at least 1').max(120, 'Age must be at most 120').required('Age is required'),
         gender: Yup.string().oneOf(['male', 'female', 'other'], 'Invalid gender').required('Gender is required'),
         birthday: Yup.date().max(new Date(), 'Birthday cannot be in the future').required('Birthday is required'),
-        avatar: Yup.string().oneOf(['man', 'woman', 'other'], 'Invalid avatar').required('Avatar is required'),
+        avatar: Yup.string().oneOf(['Man', 'Woman', 'Other'], 'Invalid avatar').required('Avatar is required'),
       });
 
-      const onSubmit = async (values, { resetForm }) => {
-        console.log('Form data', values);                
+      const submitData = async (values, { resetForm }) => { 
+        console.log('Form data', values);
         try{
             // const response = await axios.post('http://localhost:8080/clients/', {
             //     headers: {
@@ -61,17 +61,19 @@ const AddClient = ({ onCancel}) => {
             });
         }
     };
-
-    const handleCancel = () => {
-        onCancel();
-    };
     
     return(        
-        <div className='containerCenter addClient'>
+        <div className='containerCenterY'>
             <div className='containerForm'>
                 <h2 className='pageTitle'>Add Climber</h2>
-                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-                    {({ handleReset }) => {
+                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={(values, { setSubmitting, resetForm }) => {
+        submitData(values, { resetForm });
+        //    setTimeout(() => {
+        //      alert(JSON.stringify(values, null, 2));
+        //      setSubmitting(false);
+        //    }, 400);
+         }}>
+                {({ values, setFieldValue }) => {
                         return (
                             <Form className='formAddClient'>
                                 
@@ -119,14 +121,15 @@ const AddClient = ({ onCancel}) => {
                                     <label>Avatar</label>
                                     <div className='inputGroupAvatar'>
                                         <img src={userAvatarImg} alt='Man'></img>
-                                        <Select></Select>                                        
+                                        <Select
+                                onChange={(selectedOption) => setFieldValue('avatar', selectedOption)}
+                            />
                                     </div>
                                     <ErrorMessage name="avatar" component="div" className="error-message" />
                                 </div>   
                                 <div className='formBoxButtons'>
-                                    <button className='cancel' onClick={handleCancel}>Canel</button>
-                                    <button type='submit' className='submit'>Add</button>
-                                    
+                                    <Link className="btn cancelBtn" to="/dashboard">Canel</Link>
+                                    <button type='submit' className='submit'>Add</button>                                    
                                 </div>
                             </Form>
                         );

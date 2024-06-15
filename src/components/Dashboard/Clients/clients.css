@@ -10,7 +10,7 @@ main .clientsHeader{
 
 /* Add Button */
 
-main .clientsHeader button.add{
+main .clientsHeader .addBtn{
     width: 100px;
     height: 45px;
     background-color: var(--color-white);
@@ -26,7 +26,7 @@ main .clientsHeader button.add{
     transition: all 300ms ease;
 }
 
-main .clientsHeader button.add:hover{
+main .clientsHeader .addBtn:hover{
     box-shadow: none;
 }
 

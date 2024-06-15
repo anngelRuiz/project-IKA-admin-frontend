@@ -1,5 +1,6 @@
 import React from 'react';
 import logoImg from '../../images/logo.svg';
+import { Link } from 'react-router-dom';
 import './sidebar.css';
 
 const Sidebar = () => {
@@ -17,47 +18,52 @@ const Sidebar = () => {
                 
 
             <div className="sidebar">
-                <a href="#">
+                <Link className="sidebar-link active" to="/dashboard">
                     <span className="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
-                </a>
-                <a href="#" className="active">
+                </Link>
+
+                <Link className="sidebar-link" to="/dashboard">
                     <span className="material-icons-sharp">hiking</span>
                     <h3>Clients</h3>
-                </a>
-                <a href="#">
+                </Link>
+                <Link className="sidebar-link" to="/addClient">
+                    <span className="material-icons-sharp">add</span>
+                    <h3>Add Client</h3>
+                </Link>
+                <Link className="sidebar-link" to="/dashboard">
                     <span className="material-icons-sharp">receipt_long</span>
                     <h3>Orders</h3>
-                </a>
-                <a href="#">
+                </Link>
+                <Link className="sidebar-link" to="/dashboard">
                     <span className="material-icons-sharp">insights</span>
                     <h3>Analytics</h3>
-                </a>
-                <a href="#">
+                </Link>
+                <Link className="sidebar-link" to="/dashboard">
                     <span className="material-icons-sharp">mail_outline</span>
                     <h3>Messages</h3>
                     <span className="message-count">26</span>
-                </a>
-                <a href="#">
+                </Link>
+                <Link className="sidebar-link" to="/dashboard">
                     <span className="material-icons-sharp">inventory</span>
                     <h3>Products</h3>
-                </a>
-                <a href="#">
+                </Link>
+                <Link className="sidebar-link" to="/dashboard">
                     <span className="material-icons-sharp">report_gmailerrorred</span>
                     <h3>Reports</h3>
-                </a>
-                <a href="#">
+                </Link>
+                <Link className="sidebar-link" to="/dashboard">
                     <span className="material-icons-sharp">settings</span>
                     <h3>Settings</h3>
-                </a>
-                <a href="#">
+                </Link>
+                <Link className="sidebar-link" to="/dashboard">
                     <span className="material-icons-sharp">add</span>
                     <h3>Add Products</h3>
-                </a>
-                <a href="#">
+                </Link>
+                <Link className="sidebar-link" to="/login">
                     <span className="material-icons-sharp">logout</span>
                     <h3>Logout</h3>
-                </a>
+                </Link>
             </div>
         </aside>
     );
