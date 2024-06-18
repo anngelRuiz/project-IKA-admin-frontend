@@ -5,15 +5,20 @@ import './viewClient.css'
 export default class ViewClient extends Component {
   render() {
     return (
-      <div className="containerCenterY">
+      <div className="containerCenterY viewClients">
         <div className="card">
           <div className="card-header">
-            <div className="avatar">
-              <img src={clientManImg} alt="Client Avatar" />              
+            <div className="header-box">
+              <div className="avatar">
+                <img src={clientManImg} alt="Client Avatar" />              
+              </div>
+              <div className="header-info">
+                <div className="name">John Doe</div>
+                <div className="email">johndoe@example.com</div>
+              </div>
             </div>
-            <div className="header-info">
-              <div className="name">John Doe</div>
-              <div className="email">johndoe@example.com</div>
+            <div className="status good">
+              <span>Active</span>              
             </div>
           </div>
           <div className="card-content">

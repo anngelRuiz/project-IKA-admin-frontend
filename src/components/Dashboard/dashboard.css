@@ -1,7 +1,7 @@
 /* MAIN */
-main{
+/* main{
     margin-top: 4.5rem;
-}
+} */
 
 main .date{
     display: inline-block;
@@ -117,7 +117,7 @@ main .insights small{
 
 
 /* MEDIA QUERIES */
-@media screen and (max-width: 1200px) {
+/* @media screen and (max-width: 1200px) {
     .container{
         width: 94%;
         grid-template-columns: 1rem  1fr;
@@ -167,9 +167,9 @@ main .insights small{
         display: none;
     }
 
-}
+} */
 
-@media screen and (max-width: 768px){
+/* @media screen and (max-width: 768px){
     .container {
         width: 100%;
         grid-template-columns: 1fr;
@@ -226,17 +226,6 @@ main .insights small{
         padding: 0 1rem;
     }
 
-    main .recent-orders{
-        position: relative;
-        margin: 3rem 0 0 0;
-        width: 100%;
-    }
-
-    main .recent-orders table {
-        width: 100%;
-        margin: 0;
-    }
-
     .right{
         width: 94%;
         margin: 0 auto 4rem;
@@ -279,4 +268,4 @@ main .insights small{
         font-size: 2rem;
     }
 
-}
+} */

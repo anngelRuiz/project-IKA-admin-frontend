@@ -6,11 +6,10 @@ import RecentUpdates from './Rightside/RecentUpdates/RecentUpdates';
 
 const Dashboard = () => {
     return (
-        <>  
-        <main>
-          <Clients/>
-        </main>
-        <Rightside/>
+        <> 
+          Dashboard view
+          {/* <Clients/> */}
+          {/* <Rightside/> */}
         </>
     );
 };

@@ -144,11 +144,14 @@ form.formAddClient input[type="date"]::-webkit-calendar-picker-indicator:hover {
   margin-right: 30px;
   margin: 0 0 0 5px;
 
+  transition: opacity 0.5s ease-in-out;
+
   & img{
     width: 40px;
     height: 40px;
     margin-right: 10px;
   }
+  
 }
 
 .error-message {

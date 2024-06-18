@@ -1,6 +1,6 @@
 import React from 'react';
 import './rightside.css';
-import Top from './Top/Top';
+import Top from '../../Top/Top';
 import RecentUpdates from './RecentUpdates/RecentUpdates';
 
 const Rightside = () => {

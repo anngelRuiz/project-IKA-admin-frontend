@@ -1,0 +1,119 @@
+
+.profile-photo{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.navbarTop{
+    /* position: fixed; */
+    width: 100%;
+    height: 4rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+
+    padding-top: 1.5rem;
+    padding-right: 2rem;
+
+    /* border-bottom: 1px solid red; */
+}
+
+.navLeft{
+    display: flex;
+    align-items: center;
+    padding-left: 3rem;
+
+    transition: all 0.2s ease;
+}
+
+.navLeft.collapsed{
+    padding-left: auto;
+}
+
+/* Close */
+.navLeft button.menu-btn{
+    z-index: 100;
+    background: var(--color-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-black);
+}
+
+.navLeft button.menu-btn:hover{
+    cursor: pointer;
+}
+/* - Close -  */
+
+.navRight{
+    display: flex;
+    gap: 2rem;
+}
+
+
+
+.theme-toggler{
+    background-color: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    
+    border-radius: var(--border-radius-1);
+
+    & input[type="checkbox"]{
+        appearance: none;
+    }
+    
+}
+
+.theme-toggler label{
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;    
+}
+
+.theme-toggler label.active{
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: var(--border-radius-1);    
+}
+
+.navbarTop .profile{
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
+
+/* @media (min-width: 500px) and (max-width: 779px) { */
+@media (max-width: 779px) {
+    .mainContainer.collapsed .navbarTop{
+        justify-content: end;
+    }
+
+    .navLeft{
+        padding-left: 5rem;
+    }
+
+    .mainContainer.collapsed .navLeft button.menu-btn {
+        position: fixed;
+        right: 10%;
+    }
+
+    .navRight{
+        display: flex;
+    }
+
+    .mainContainer.collapsed .navRight{
+        display: none;
+    }
+}
