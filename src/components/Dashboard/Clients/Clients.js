@@ -63,11 +63,8 @@ const Clients = () => {
     };
 
     return(
-        <>
-            {showAddClient ? (
-                <AddClient onCancel={toggleAddClient}/>
-            ) : (
-                <div className="recent-orders">
+        <div className="containerCenterY clients">
+                    <div className="containerClients">
                         <h2 className="clientsTitle">Climbers</h2>
                         <div className='clientsHeader'>
                             <div className="searchBox">
@@ -75,9 +72,7 @@ const Clients = () => {
                                 <input className="seachInput" ype="text" placeholder="Search climber" value={searchInput} onChange={handleSearch}/>
                                 <button className={`clearInputButton ${showClearButton ? 'show' : ''}`} type="reset" aria-label="Clear search" title="Clear seach" onClick={clearInput}>x</button>
                             </div>
-                            <Link className="button md addBtn" to="/addClient"><span className="material-icons-sharp">add</span></Link>
-                            {/* <button className="addBtn" aria-label="Add Button" title="Add Client" onClick={toggleAddClient}><span className="material-icons-sharp">add</span></button> */}
-                        </div>
+                            <Link className="button md addBtn" to="/addClient"><span className="material-icons-sharp">add</span></Link>                        </div>
                         {filteredClients.length == 0 && searchInput.trim() !== ''? (<ClientNotFound/>) : (
                         <table>
                             <thead>
@@ -106,9 +101,8 @@ const Clients = () => {
                             </tbody>
                         </table>
                         )}
+                    </div>
                 </div>
-            )}
-        </>
     );
 };
 

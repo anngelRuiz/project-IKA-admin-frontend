@@ -1,7 +1,6 @@
-.card {
+.viewClients .card {
   width: 80%;
   height: 400px;
-  margin: 0 auto;
   overflow: hidden;
 
   background-color: var(--color-white);
@@ -9,16 +8,23 @@
   box-shadow: var(--box-shadow);
 }
 
-.card-header {
+.viewClients .card-header {
   position: relative;
-  border-bottom: 1px solid #eeeeee;
-  padding: 1.5rem;
+  /* border-bottom: 1px solid #eeeeee; */
+  padding: 1.5rem 4rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
+
 }
 
-.avatar {
+.viewClients .card-header .header-box{
+  display: flex;
+  gap: 1rem; 
+}
+
+.viewClients .avatar {
   width: 4rem;
   height: 4rem;
   position: relative;
@@ -30,57 +36,86 @@
   justify-content: center;
 }
 
-.avatar img {
+.viewClients .avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.avatar-fallback {
+.viewClients .avatar-fallback {
   position: absolute;
   color: #9ca3af;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-.header-info {
+.viewClients .header-info {
   display: grid;
   gap: 0.25rem;
 }
 
-.header-info .name {
+.viewClients .header-info .name {
   font-size: 1.25rem;
   font-weight: 600;
 }
 
-.header-info .email {
+.viewClients .header-info .email {
   font-size: 0.875rem;
   color: #6b7280;
 }
 
-.card-content {
+.viewClients .status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 15%;
+  height: 30px;
+  /* background-color: var(--color-status-good); */
+
+  border-radius: var(--border-radius-1);
+  color: white;
+}
+
+.viewClients .status.good {
+  background-color: var(--color-status-good);
+}
+
+.viewClients .status.pay {
+  background-color: var(--color-status-pay);
+}
+
+.viewClients .status.pending {
+  background-color: var(--color-status-pending);
+}
+
+.viewClients .status.inactive {
+  background-color: var(--color-status-inactive);
+}
+
+.viewClients .card-content {
   padding: 1.5rem;
   display: grid;
   gap: 1rem;
 }
 
-.content-row {
+.viewClients .content-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
-.content-item {
+.viewClients .content-item {
   display: grid;
   gap: 0.25rem;
 }
 
-.label {
+.viewClients .label {
   font-size: 0.875rem;
   font-weight: 500;
   color: #6b7280;
 }
 
-.detailValue{
+.viewClients .detailValue{
   margin-left: 0.5rem;
 }

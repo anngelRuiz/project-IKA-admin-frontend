@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Select from './Select'
-import clientManImg from '../../../../images/users-profile/client-man.png';
 import userAvatarImg from '../../../../images/news/usuario.png';
 import Swal from 'sweetalert2';
 import { Formik, Form, Field, ErrorMessage, useFormik  } from 'formik';
 import * as Yup from 'yup';
-import './addClient.css'; 
+import './addClient.css';
 
-const AddClient = () => {    
+const AddClient = () => {
+    const [avatarUrl, setAvatarUrl] = useState(userAvatarImg);
+
     const initialValues = {
         firstName: '',
         lastName: '',
@@ -46,7 +47,7 @@ const AddClient = () => {
                 icon: 'success',
                 title: 'User added successfully!',
                 showConfirmButton: true,
-                confirmButtonColor: "#1cbbdb"                
+                confirmButtonColor: "#1cbbdb"
             });
             
             resetForm();
@@ -89,7 +90,7 @@ const AddClient = () => {
                                 </div>
                                 <div className="inputGroup">
                                     <label htmlFor="gender">Gender</label>
-                                    <Field as="select" id="gender" name="gender">
+                                    <Field as="select" id="gender" name="gender" >
                                         <option value="" disabled>Select Gender</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
@@ -120,15 +121,14 @@ const AddClient = () => {
                                 <div className='inputGroup'>
                                     <label>Avatar</label>
                                     <div className='inputGroupAvatar'>
-                                        <img src={userAvatarImg} alt='Man'></img>
-                                        <Select
-                                onChange={(selectedOption) => setFieldValue('avatar', selectedOption)}
-                            />
+                                        <img src={avatarUrl} alt='Avatar'/>
+                                        
+                                        <Select avatarUrl={avatarUrl} setAvatarUrl={setAvatarUrl}/>
                                     </div>
                                     <ErrorMessage name="avatar" component="div" className="error-message" />
                                 </div>   
                                 <div className='formBoxButtons'>
-                                    <Link className="btn cancelBtn" to="/dashboard">Canel</Link>
+                                    <Link className="btn cancelBtn" to="/clients">Canel</Link>
                                     <button type='submit' className='submit'>Add</button>                                    
                                 </div>
                             </Form>

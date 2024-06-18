@@ -26,7 +26,7 @@ body{
     height: 100vh;
     font-family: 'Poppins', sans-serif;
     font-size: 0.88rem;
-    background: var(--color-background);
+    background-color: var(--color-background);
     user-select: none;
     overflow-x: hidden;
     color: var(--color-dark);
@@ -56,6 +56,7 @@ body{
     --color-status-good: #4cdbf9;
     --color-status-pay: #f15a67;
     --color-status-pending: #f7cf92;
+    --color-status-inactive: #dcdcdc;
 
     --card-border-radius: 1.0rem; /*1.5rem*/
     --border-radius-1: 0.4rem;
@@ -122,14 +123,6 @@ b{
     color: var(--color-success);
 }
 
-.container{
-    display: grid;
-    width: 96%;
-    margin: 0 auto;    
-    gap: 1.8rem;
-    grid-template-columns: 14rem auto 23rem;
-}
-
 a{
     color: var(--color-dark);
 }
@@ -164,24 +157,51 @@ small{
     font-size: 0.75rem;
 }
 
+
+
+.mainContainer{
+    display: grid;
+    grid-template-columns: 250px 1fr;
+
+    & .rightContainer {
+        display: flex;
+        flex-direction: column;
+        /* border-left: 1px solid red; */
+    }
+}
+
+/* Collapsed sidebar */
+.mainContainer.collapsed {
+    grid-template-columns: 120px 1fr;
+}
+
+
+main{
+    /* padding-left: 15%; */
+    padding-top: 3rem;
+    /* height: 100vh; */
+
+    transition: transform 0.3s ease-in-out; 
+}
+
 .containerCenter{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    
     width: 100%;
+    height: 100vh;
 }
 
 .containerCenterY{
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    /* height: 100vh; */
     width: 100%;
 
-    margin-top: 2.8rem;
+    /* margin-top: 2.8rem; */
 }
 
 .mt20{
@@ -213,9 +233,28 @@ small{
     }
 }
 
-@media screen and (max-width: 1000px) {
-    .container {
-        width: 100%;
-        grid-template-columns: repeat(2, 1fr);
+/* @media (min-width: 1025px) and (max-width: 1921px) {
+    .mainContainer{
+        grid-template-columns: 100px 1fr;
+    }
+} */
+
+/* @media screen and (min-width: 780px) and (max-width: 1024px) { */
+@media (max-width: 1024px) {
+    .mainContainer{
+        grid-template-columns: 100px 1fr;
     }
 }
+
+/* @media screen and (min-width: 500px) and (max-width: 779px) { */
+@media (max-width: 779px) {
+    .mainContainer{
+        grid-template-columns: 1fr;
+    }
+
+    /* .mainContainer.collapsed {
+        grid-template-columns: 1fr;
+    } */
+}
+
+
