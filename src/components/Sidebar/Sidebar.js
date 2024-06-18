@@ -43,10 +43,10 @@ const Sidebar = ({ isSidebarActive, toggleSidebar }) => {
           <span className="material-icons-sharp">receipt_long</span>
           <h3>Orders</h3>
         </NavLink>
-        <NavLink className="sidebar-link" to="/dashboard">
+        {/* <NavLink className="sidebar-link" to="/dashboard">
           <span className="material-icons-sharp">insights</span>
           <h3>Analytics</h3>
-        </NavLink>
+        </NavLink> */}
         <NavLink className="sidebar-link" to="/dashboard">
           <span className="material-icons-sharp">mail_outline</span>
           <h3>Messages</h3>
