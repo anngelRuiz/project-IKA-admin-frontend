@@ -9,15 +9,26 @@ import ContactUs from './components/ContactUs/ContactUs';
 import ViewClient from './components/Dashboard/Clients/ViewClient/ViewClient';
 import AddClient from './components/Dashboard/Clients/AddClient/AddClient';
 import Top from './components/Top/Top';
+// import Top from './components/Dashboard/Rightside/Top/Top';
+import { ThemeProvider } from './context/theme-context'; // Adjust the import according to your file structure
+import { useTheme } from './context/theme-context'; // Adjust the path to your useTheme hook
+
+
 
 const Layout = () => {
   const location = useLocation();
+  const { theme } = useTheme();
   const isLoginPage = location.pathname === '/login';   // Condicional para ocultar la barra lateral en la ruta /login
   const [isSidebarActive, setIsSidebarActive] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarActive(!isSidebarActive);
   };
+
+  React.useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
 
   return (
     <div data-theme="light" className={`mainContainer ${isSidebarActive ? 'collapsed' : ''}`}>
@@ -35,19 +46,21 @@ const Layout = () => {
 
 function App() {
   return (
-    <Router>
-      <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route path="/dashboard" Component={Dashboard}/>
-            <Route path="/clients" Component={Clients}/>
-            <Route path="/aboutUs" Component={AboutUs}/>
-            <Route path="/contactUs" Component={ContactUs}/>
-            <Route path="/viewClient" Component={ViewClient}/>
-            <Route path="/addClient" Component={AddClient}/>
-          </Route>
-          <Route path="/login" Component={Login}/>
-        </Routes>
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route path="/dashboard" Component={Dashboard}/>
+              <Route path="/clients" Component={Clients}/>
+              <Route path="/aboutUs" Component={AboutUs}/>
+              <Route path="/contactUs" Component={ContactUs}/>
+              <Route path="/viewClient" Component={ViewClient}/>
+              <Route path="/addClient" Component={AddClient}/>
+            </Route>
+            <Route path="/login" Component={Login}/>
+          </Routes>
+      </Router>
+    </ThemeProvider>
   );
 };
 

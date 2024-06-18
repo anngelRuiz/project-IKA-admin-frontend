@@ -1,6 +1,10 @@
+import React from 'react';
+import { useTheme } from '../../../context/theme-context';
 import "../top.css"
 
 export const Toggle = () => {
+
+    const { theme, toggleTheme } = useTheme()
 
     const setDarkMode = () => {
         document.querySelector("body").setAttribute("data-theme", "dark");
@@ -14,20 +18,20 @@ export const Toggle = () => {
         console.log(document.querySelector("body"));
     };
 
-    const toggleTheme = (e) =>{
-        const checkbox = e.target;
-        const activeClass = "active";
+    // const toggleTheme = (e) =>{
+    //     const checkbox = e.target;
+    //     const activeClass = "active";
 
-        if (checkbox.checked) {
-            setDarkMode();
-            document.querySelector(".darkLabel").classList.add(activeClass);
-            document.querySelector(".lightLabel").classList.remove(activeClass);
-        } else {
-            setLightMode();
-            document.querySelector(".darkLabel").classList.remove(activeClass);
-            document.querySelector(".lightLabel").classList.add(activeClass);
-        }
-    }
+    //     if (checkbox.checked) {
+    //         setDarkMode();
+    //         document.querySelector(".darkLabel").classList.add(activeClass);
+    //         document.querySelector(".lightLabel").classList.remove(activeClass);
+    //     } else {
+    //         setLightMode();
+    //         document.querySelector(".darkLabel").classList.remove(activeClass);
+    //         document.querySelector(".lightLabel").classList.add(activeClass);
+    //     }
+    // }
 
     return (
         <div className="theme-toggler">
