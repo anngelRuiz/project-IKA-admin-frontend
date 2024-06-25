@@ -1,6 +1,6 @@
 import React from "react";
 import logoImg from "../../images/logo.svg";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./sidebar.css";
 
 const Sidebar = ({ isSidebarActive, toggleSidebar }) => {
@@ -39,36 +39,36 @@ const Sidebar = ({ isSidebarActive, toggleSidebar }) => {
           <span className="material-icons-sharp">visibility</span>
           <h3>View Client</h3>
         </NavLink>
-        <NavLink className="sidebar-link" to="/dashboard">
+        {/* <NavLink reloadDocument className="sidebar-link" to="/orders">
           <span className="material-icons-sharp">receipt_long</span>
           <h3>Orders</h3>
-        </NavLink>
-        {/* <NavLink className="sidebar-link" to="/dashboard">
+        </NavLink> */}
+        {/* <NavLink className="sidebar-link" to="/analytics">
           <span className="material-icons-sharp">insights</span>
           <h3>Analytics</h3>
         </NavLink> */}
-        <NavLink className="sidebar-link" to="/dashboard">
+        <NavLink reloadDocument className="sidebar-link" to="/messages">
           <span className="material-icons-sharp">mail_outline</span>
           <h3>Messages</h3>
-          <span className="message-count">26</span>
+          <span reloadDocument className="message-count">26</span>
         </NavLink>
-        <NavLink className="sidebar-link" to="/dashboard">
+        <NavLink reloadDocument className="sidebar-link" to="/products">
           <span className="material-icons-sharp">inventory</span>
           <h3>Products</h3>
         </NavLink>
-        <NavLink className="sidebar-link" to="/dashboard">
+        <NavLink reloadDocument className="sidebar-link" to="/reports">
           <span className="material-icons-sharp">report_gmailerrorred</span>
           <h3>Reports</h3>
         </NavLink>
-        <NavLink className="sidebar-link" to="/dashboard">
+        <NavLink reloadDocument className="sidebar-link" to="/settings">
           <span className="material-icons-sharp">settings</span>
           <h3>Settings</h3>
         </NavLink>
-        <NavLink className="sidebar-link" to="/dashboard">
+        <NavLink reloadDocument  className="sidebar-link" to="/addProducts">
           <span className="material-icons-sharp">add</span>
           <h3>Add Products</h3>
         </NavLink>
-        <NavLink className="sidebar-link" to="/login">
+        <NavLink reloadDocument className="sidebar-link" to="/login">
           <span className="material-icons-sharp">logout</span>
           <h3>Logout</h3>
         </NavLink>

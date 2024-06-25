@@ -72,7 +72,8 @@ const Clients = () => {
                                 <input className="seachInput" ype="text" placeholder="Search climber" value={searchInput} onChange={handleSearch}/>
                                 <button className={`clearInputButton ${showClearButton ? 'show' : ''}`} type="reset" aria-label="Clear search" title="Clear seach" onClick={clearInput}>x</button>
                             </div>
-                            <Link className="button md addBtn" to="/addClient"><span className="material-icons-sharp">add</span></Link>                        </div>
+                            <Link className="button md addBtn" to="/addClient"><span className="material-icons-sharp">add</span></Link>
+                        </div>
                         {filteredClients.length == 0 && searchInput.trim() !== ''? (<ClientNotFound/>) : (
                         <table>
                             <thead>

@@ -24,12 +24,14 @@ const AddClient = () => {
       const validationSchema = Yup.object({
         firstName: Yup.string().required('First name is required'),
         lastName: Yup.string().required('Last name is required'),
-        email: Yup.string().email('Invalid email address').required('Email is required'),
-        phone: Yup.string().matches(/^[0-9]+$/, 'Phone number must be only digits').required('Phone number is required'),
+        //email: Yup.string().email('Invalid email address').required('Email is required'),
+        //phone: Yup.string().matches(/^[0-9]+$/, 'Phone number must be only digits').required('Phone number is required'),
         age: Yup.number().min(1, 'Age must be at least 1').max(120, 'Age must be at most 120').required('Age is required'),
         gender: Yup.string().oneOf(['male', 'female', 'other'], 'Invalid gender').required('Gender is required'),
-        birthday: Yup.date().max(new Date(), 'Birthday cannot be in the future').required('Birthday is required'),
+        //birthday: Yup.date().max(new Date(), 'Birthday cannot be in the future').required('Birthday is required'),
+        membershipType: Yup.string().oneOf(['monthly', 'anually', 'daily'], 'Invalid Mermber Type').required('Mermber Type is required'),
         avatar: Yup.string().oneOf(['Man', 'Woman', 'Other'], 'Invalid avatar').required('Avatar is required'),
+        //emergencyContact: Yup.string().matches(/^[0-9]+$/, 'Phone number must be only digits').required('Emergency Contact number is required'),
       });
 
       const submitData = async (values, { resetForm }) => { 
@@ -98,6 +100,16 @@ const AddClient = () => {
                                     </Field>
                                     <ErrorMessage name="gender" component="div" className="error-message" />
                                 </div>
+                                <div className="inputGroup">
+                                    <label htmlFor="membershipType">Membership Type</label>
+                                    <Field as="select" id="membershipType" name="membershipType" >
+                                        <option value="" disabled>Select Gender</option>
+                                        <option value="monthly">Monthly</option>
+                                        <option value="anually">Anually</option>
+                                        <option value="daily">Daily</option>
+                                    </Field>
+                                    <ErrorMessage name="gender" component="div" className="error-message" />
+                                </div>
                                 <div className='inputGroup'>
                                     <label htmlFor="email">Email <span className='light optional'>(Optional)</span></label>
                                     <Field type="email" id="email" name="email" placeholder="e.g jhonwick@outlook.com" />
@@ -126,6 +138,11 @@ const AddClient = () => {
                                         <Select avatarUrl={avatarUrl} setAvatarUrl={setAvatarUrl}/>
                                     </div>
                                     <ErrorMessage name="avatar" component="div" className="error-message" />
+                                </div>
+                                <div className='inputGroup'>
+                                    <label htmlFor="phone">Emergency Contact <span className='light optional'>(Optional)</span></label>
+                                    <Field type="text" id="emergencyContact" name="emergencyContact" placeholder="e.g 636-123-92-23" />
+                                    <ErrorMessage name="emergencyContact" component="div" className="error-message" />
                                 </div>   
                                 <div className='formBoxButtons'>
                                     <Link className="btn cancelBtn" to="/clients">Canel</Link>

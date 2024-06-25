@@ -11,7 +11,7 @@
 .viewClients .card-header {
   position: relative;
   /* border-bottom: 1px solid #eeeeee; */
-  padding: 1.5rem 4rem;
+  padding: 1.5rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -59,22 +59,34 @@
   font-weight: 600;
 }
 
-.viewClients .header-info .email {
-  font-size: 0.875rem;
+.viewClients .header-info .next-date {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
   color: #6b7280;
+
+
+  & span{
+    font-size: 1rem;
+  }
 }
 
 .viewClients .status {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
 
-  width: 15%;
+  width: 150px;
   height: 30px;
-  /* background-color: var(--color-status-good); */
 
   border-radius: var(--border-radius-1);
-  color: white;
+  color: white; /*  NOT CHANGE TO VAR */
+}
+
+.viewClients .status span:first-of-type {
+  font-size: 1rem;
 }
 
 .viewClients .status.good {
@@ -95,6 +107,7 @@
 
 .viewClients .card-content {
   padding: 1.5rem;
+  padding-bottom: 2rem;
   display: grid;
   gap: 1rem;
 }
@@ -102,20 +115,42 @@
 .viewClients .content-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 2.5rem;
+  padding: 0 1rem;
+}
+
+.viewClients .content-section{
+  display: grid;
+  gap: 0.3rem;
 }
 
 .viewClients .content-item {
-  display: grid;
-  gap: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.viewClients p{
+  color: var(--color-info-dark);
 }
 
 .viewClients .label {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #6b7280;
+  color: var(--color-dark-variant);
 }
 
 .viewClients .detailValue{
   margin-left: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+
+  .viewClients .content-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .viewClients .status {
+    width: 100px;
+  }
 }
