@@ -6,7 +6,7 @@ aside{
     transition: all 0.3s ease-in-out;
 
     & .top .logo h2 {    
-        transition: all 0.3s ease-in-out;
+        /* transition: all 0.3s ease-in-out; */
     }
 
     & .sidebar h3{
@@ -20,12 +20,12 @@ aside{
 
     & .top{
         padding-left: 30px;
-        transition: all 0.3s ease-in-out;
+        /* transition: all 0.3s ease-in-out; */
     }
 
     & .top .logo h2 {
         display: none;        
-        transition: all 0.3s ease-in-out;
+        /* transition: all 0.3s ease-in-out; */
     }
 
     & .sidebar h3{

@@ -35,7 +35,7 @@ const Sidebar = ({ isSidebarActive, toggleSidebar }) => {
           <span className="material-icons-sharp">add</span>
           <h3>Add Client</h3>
         </NavLink>
-        <NavLink className="sidebar-link" to="/viewClient">
+        <NavLink reloadDocument className="sidebar-link" to="/viewClient">
           <span className="material-icons-sharp">visibility</span>
           <h3>View Client</h3>
         </NavLink>

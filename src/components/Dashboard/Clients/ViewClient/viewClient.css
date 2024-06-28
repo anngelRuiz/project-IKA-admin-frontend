@@ -1,5 +1,5 @@
 .viewClients .card {
-  width: 80%;
+  width: 65%;
   /* height: 400px; */
   overflow: hidden;
 
@@ -148,6 +148,10 @@
 
   .viewClients .content-row {
     grid-template-columns: 1fr;
+  }
+
+  .viewClients .card {
+    width: 80%;
   }
   
   .viewClients .status {

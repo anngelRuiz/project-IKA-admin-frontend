@@ -5,34 +5,32 @@ import clientWomanImg from '../../../images/users-profile/client-woman.png';
 import clientManImg from '../../../images/users-profile/client-man.png';
 import axios from 'axios';
 import ClientNotFound from './ClientNotFound/ClientNotFound';
-import AddClient from './AddClient/AddClient';
-import ViewClient from './ViewClient/ViewClient';
+import StatusClient from '../../StatusClient/StatusClient';
 
 const Clients = () => {
 
-    const [showAddClient, setShowAddClient] = useState(false);
-    const [showViewClient, setShowViewClient] = useState(false);
     const [clients, setClients] = useState([]);
     const [searchInput, setSearchInput] = useState('');
     const [filteredClients, setFilteredClients] = useState(clients);
     const [showClearButton, setShowClearButton] = useState(false);
 
-    useEffect(() => {
-        const fetchClients = async () => {
-            try{
-                const response = await axios.get('http://localhost:8080/clients/');
-                if(response.status === 200){
-                    setClients(response.data);
-                    setFilteredClients(response.data);
-                    console.log(response.data);
-                }else{
-                    console.error('Failed to fetch clients', response.statusText);
-                }
-            }catch(error){
-                console.error('Error during fetch Clients: ', error);
+    const fetchClients = async () => {
+        try{
+            console.log("Fetching");
+            const response = await axios.get('http://localhost:8080/api/clients');
+            if(response.status === 200){
+                setClients(response.data);
+                setFilteredClients(response.data);
+                console.log(response.data);
+            }else{
+                console.error('Failed to fetch clients', response.statusText);
             }
-        };
+        }catch(error){
+            console.error('Error during fetch Clients: ', error);
+        }
+    };
 
+    useEffect(() => {
         fetchClients();
     }, []); // Run once on component mount
     
@@ -46,15 +44,6 @@ const Clients = () => {
         setFilteredClients(filteredClients);
         setShowClearButton(searchVal.trim() !== '');
     };
-
-    const toggleAddClient = () => {
-        setShowAddClient(!showAddClient);
-    };
-
-    const toggleViewClient = () => {
-        console.log("showViewClient");
-        setShowViewClient(!showAddClient);
-    };
     
     const clearInput = () => {
         setSearchInput('');
@@ -63,7 +52,7 @@ const Clients = () => {
     };
 
     return(
-        <div className="containerCenterY clients">
+        <div className="containerCenterY clientsView">
                     <div className="containerClients">
                         <h2 className="clientsTitle">Climbers</h2>
                         <div className='clientsHeader'>
@@ -75,13 +64,13 @@ const Clients = () => {
                             <Link className="button md addBtn" to="/addClient"><span className="material-icons-sharp">add</span></Link>
                         </div>
                         {filteredClients.length == 0 && searchInput.trim() !== ''? (<ClientNotFound/>) : (
-                        <table>
+                        <table cellspacing="0">
                             <thead>
                                 <tr>
                                     {/* <th>ID Cient</th> */}
-                                    <th className="hidePhoto">Photo</th>
+                                    <th>Photo</th>
                                     <th>Client</th>                            
-                                    <th className="hideField">Date</th>
+                                    <th>Date</th>
                                     <th>Status</th>
                                     {/* <th></th>  */}
                                 </tr>
@@ -90,12 +79,14 @@ const Clients = () => {
                                 {
                                     filteredClients.map((client) => (
                                         <tr key={client.id}>
-                                            <td className="client-photo hidePhoto">
-                                                <img src={client.gender === 'M' ? clientManImg: clientWomanImg}/>
+                                            <td className="client-photo">
+                                                <img src={client.gender === 'Male' ? clientManImg: clientWomanImg}/>
                                             </td>
                                             <td>{client.firstName}</td>
-                                            <td className="hideField">{client.membershipExpiryDate}</td>
-                                            <td><div className="statusBox"><div className={`status ${client.membershipValid ? 'good': 'pay'}`}>{client.membershipValid ? <span className="material-icons-sharp">check</span>: <span className="material-icons-sharp">close</span>}</div></div></td>
+                                            <td>{client.membershipNextDate}</td>
+                                            <td>
+                                                <StatusClient status={client.status}></StatusClient>
+                                            </td>
                                         </tr>
                                     ))
                                 }
