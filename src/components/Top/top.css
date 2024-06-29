@@ -16,8 +16,9 @@
     align-items: center;
     gap: 2rem;
 
-    padding-top: 1.5rem;
-    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
 
     /* border-bottom: 1px solid red; */
 }
@@ -25,7 +26,7 @@
 .navLeft{
     display: flex;
     align-items: center;
-    padding-left: 3rem;
+    /* padding-left: 3rem; */
 
     transition: all 0.2s ease;
 }
@@ -51,6 +52,7 @@
 
 .navRight{
     display: flex;
+    align-items: center;
     gap: 2rem;
 }
 
@@ -99,9 +101,8 @@
     .mainContainer.collapsed .navbarTop{
         justify-content: end;
     }
-
-    .navLeft{
-        padding-left: 5rem;
+    .navLeft.collapsed{
+        padding-right: 2rem;
     }
 
     .mainContainer.collapsed .navLeft button.menu-btn {
@@ -110,7 +111,7 @@
     }
 
     .navRight{
-        display: flex;
+        /* display: flex; */
     }
 
     .mainContainer.collapsed .navRight{

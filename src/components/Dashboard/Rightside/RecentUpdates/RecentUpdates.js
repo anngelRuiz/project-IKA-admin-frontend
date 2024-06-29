@@ -1,6 +1,6 @@
 import React from 'react';
 import './recentUpdates.css';
-import clientManImg from '../../../../images/users-profile/client-man.png';
+import clientManImg from '../../../../images/users-profile/client-man-1.png';
 
 const RecentUpdates = () => {
     return(

@@ -56,8 +56,8 @@ body{
 
     --color-status-good: #48d85d;
     --color-status-pay: #f15a67;
-    --color-status-pending: #f7cf92;
-    --color-status-inactive: #dcdcdc;
+    --color-status-expiring: #f7cf92;
+    --color-status-inactive: #585858;
 
     --card-border-radius: 1.0rem;
     --border-radius-1: 0.4rem;
@@ -206,6 +206,23 @@ main{
     width: 100%;
 
     margin-top: 3rem;
+}
+
+.containerAbosulte{
+    position: fixed;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: #000000de;
 }
 
 .mt20{

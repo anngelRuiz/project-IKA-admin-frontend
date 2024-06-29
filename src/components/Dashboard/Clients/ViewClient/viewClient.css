@@ -72,39 +72,6 @@
   }
 }
 
-.viewClients .status {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-
-  width: 150px;
-  height: 30px;
-
-  border-radius: var(--border-radius-1);
-  color: white; /*  NOT CHANGE TO VAR */
-}
-
-.viewClients .status span:first-of-type {
-  font-size: 1rem;
-}
-
-.viewClients .status.good {
-  background-color: var(--color-status-good);
-}
-
-.viewClients .status.pay {
-  background-color: var(--color-status-pay);
-}
-
-.viewClients .status.pending {
-  background-color: var(--color-status-pending);
-}
-
-.viewClients .status.inactive {
-  background-color: var(--color-status-inactive);
-}
-
 .viewClients .card-content {
   padding: 1.5rem;
   padding-bottom: 2rem;
@@ -157,4 +124,17 @@
   .viewClients .status {
     width: 100px;
   }
+}
+
+@media (max-width: 780px) {
+
+  .viewClients .card-header {
+    flex-direction: column;
+    align-items: start;
+
+    & .status{
+      width: 100%;
+    }
+  }
+
 }

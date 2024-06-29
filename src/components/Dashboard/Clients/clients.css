@@ -27,7 +27,7 @@ main .clientsView .clientsHeader .addBtn{
 
     cursor: pointer;
 
-    transition: all 300ms ease;
+    transition: box-shadow 300ms ease;
 }
 
 main .clientsHeader .addBtn:hover{

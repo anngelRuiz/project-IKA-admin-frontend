@@ -1,7 +1,6 @@
-import './statusClient.css';
-import Tooltip from '../Tooltip/Tooltip ';
+import './statusClientView.css';
 
-const StatusClient = ({status}) => {
+const StatusClientView = ({status}) => {
     let statusClass = '';
     let statusIcon = '';
 
@@ -12,7 +11,7 @@ const StatusClient = ({status}) => {
             break;
         case 'PAY':
             statusClass = 'pay';
-            statusIcon = 'close'
+            statusIcon = 'payments'
             break;
         case 'EXPIRING':
             statusClass = 'expiring';
@@ -20,8 +19,8 @@ const StatusClient = ({status}) => {
             break;
         case 'INACTIVE':
             statusClass = 'inactive';
-            statusIcon = 'person_off'
-            break;       
+            statusIcon = 'person_off';
+            break;        
         default:
             statusClass = 'unkown';
             statusIcon = 'no_accounts'
@@ -29,13 +28,11 @@ const StatusClient = ({status}) => {
     }
 
     return (
-        <div className="statusBox">
-            <div className={`status ${statusClass}`}>
-                <span className="material-icons-sharp">{statusIcon}</span>
-                <Tooltip statusText={status}/>
-            </div>
+        <div className={`status ${statusClass}`}>
+            <span className="material-icons-sharp">{statusIcon}</span>
+            <span>{status}</span>
         </div>
     );
 }
 
-export default StatusClient;
+export default StatusClientView;

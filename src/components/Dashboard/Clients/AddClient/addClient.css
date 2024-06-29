@@ -154,7 +154,7 @@ form.formAddClient input[type="date"]::-webkit-calendar-picker-indicator:hover {
   
 }
 
-.error-message {
+.addClientView .error-message {
   color: #fa5a5a;
   font-size: 0.875em;
   margin-top: 0.25em;

@@ -1,12 +1,14 @@
 ### TODO:
 Integrate API calls
-Checar avatar imgs
-Checar icon warngin for notify
-Checar inactive color, icon
+
 Chear nombre completo para buscar clientes,
-Checar avatars, random tambien en backen checar si elimino
-Checar nombre notify, remover editar pending name 
-Integrar view client 
+Modificar search clients
+
+Checkar cLIENTES expirados
+
+Crear update client
+Ver como editar solo fechas
+Modificar add client
 
 
 
@@ -15,6 +17,7 @@ Status,
 NExt date
 
 Think about logic to check pending payments or warning paymnets
+Checar collapse button responsies and positions, bad positions 
 
 Future:
 Create Dashboard

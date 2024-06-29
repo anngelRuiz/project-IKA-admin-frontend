@@ -45,3 +45,25 @@ https://dribbble.com/shots/3254828-Rock-Climber
 https://dribbble.com/shots/2655022-Hanging-out
 https://dribbble.com/shots/3734402-Climbing-in-the-Desert
 https://dribbble.com/shots/5252117-
+
+Spinner
+https://tobiasahlin.com/spinkit/
+
+
+### FlatIcons -Avatars
+woman backpack
+https://www.flaticon.com/free-icon/backpacker_1926426?term=woman+backpack&page=1&position=8&origin=search&related_id=1926426
+https://www.flaticon.com/free-icon/adventurer_4125841?term=woman+backpack&page=1&position=2&origin=search&related_id=4125841
+https://www.flaticon.com/free-icon/backpacker_14023278?related_id=14023278
+trekker
+young-woman
+aventure
+
+https://www.flaticon.com/free-icon/traveler_7417912?term=backpacker+man&page=4&position=4&origin=search&related_id=7417912
+
+
+
+<td className="client-photo">
+    <img src={getRan
+    domImage(client.gender)} alt="Client Avatar" />
+</td>

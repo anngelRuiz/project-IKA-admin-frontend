@@ -1,9 +1,8 @@
-import Reaect, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './clients.css';
-import clientWomanImg from '../../../images/users-profile/client-woman.png';
-import clientManImg from '../../../images/users-profile/client-man.png';
 import axios from 'axios';
+import {getRandomImage} from '../../../utils/imageUtils';
 import ClientNotFound from './ClientNotFound/ClientNotFound';
 import StatusClient from '../../StatusClient/StatusClient';
 
@@ -14,9 +13,11 @@ const Clients = () => {
     const [filteredClients, setFilteredClients] = useState(clients);
     const [showClearButton, setShowClearButton] = useState(false);
 
+    const navigate = useNavigate ();
+
     const fetchClients = async () => {
         try{
-            console.log("Fetching");
+            console.log("Fetching clients");
             const response = await axios.get('http://localhost:8080/api/clients');
             if(response.status === 200){
                 setClients(response.data);
@@ -30,9 +31,9 @@ const Clients = () => {
         }
     };
 
-    useEffect(() => {
-        fetchClients();
-    }, []); // Run once on component mount
+    const handleClickClient = (id) => {
+        navigate(`/clients/${id}`);
+    }
     
     const handleSearch = (e) => {
         e.preventDefault();
@@ -50,6 +51,10 @@ const Clients = () => {
         setFilteredClients(clients);
         setShowClearButton(false);
     };
+
+    useEffect(() => {
+        fetchClients();
+    }, []); // Run once on component mount
 
     return(
         <div className="containerCenterY clientsView">
@@ -69,20 +74,22 @@ const Clients = () => {
                                 <tr>
                                     {/* <th>ID Cient</th> */}
                                     <th>Photo</th>
-                                    <th>Client</th>                            
-                                    <th>Date</th>
+                                    {/* <th>Client</th> */}
+                                    <th>First Name</th> 
+                                    <th>Last Name</th> 
+                                    <th>Next Date</th>
                                     <th>Status</th>
-                                    {/* <th></th>  */}
                                 </tr>
                             </thead>
                             <tbody>
                                 {
                                     filteredClients.map((client) => (
-                                        <tr key={client.id}>
+                                        <tr key={client.id} onClick={() => handleClickClient(client.id)}>
                                             <td className="client-photo">
-                                                <img src={client.gender === 'Male' ? clientManImg: clientWomanImg}/>
+                                                <img src={getRandomImage(client.gender)} alt="Client Avatar" />
                                             </td>
                                             <td>{client.firstName}</td>
+                                            <td>{client.lastName}</td>
                                             <td>{client.membershipNextDate}</td>
                                             <td>
                                                 <StatusClient status={client.status}></StatusClient>

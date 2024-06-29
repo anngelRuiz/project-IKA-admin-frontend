@@ -66,7 +66,7 @@ const AddClient = () => {
     };
     
     return(        
-        <div className='containerCenterY'>
+        <div className='containerCenterY addClientView'>
             <div className='containerForm'>
                 <h2 className='pageTitle'>Add Climber</h2>
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={(values, { setSubmitting, resetForm }) => {

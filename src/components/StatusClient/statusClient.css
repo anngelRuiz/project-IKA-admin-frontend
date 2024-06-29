@@ -8,38 +8,47 @@ main table tbody td .statusBox .status{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 2rem;
-    height: 2rem; */
-    background-color: transparent;
-    /* cursor: pointer; */
-    /* color: var(--color-dark); */
-    color: var(--color-white);
-    /* border: 1px dashed var(--color-dark-variant); */
-    border-radius: var(--border-radius-2);
-    transition: all 300ms ease;    
+    position: relative;
+
+    /* background-color: transparent; */
     padding: 2px;
+
+    color: var(--color-white);
+    border-radius: var(--border-radius-1);
+
+    transition: all 300ms ease;    
 }
 
-main table tbody td .statusBox .status span{
+main table tbody td .statusBox .status span:first-of-type{
     font-size: 1.7rem;
 }
 
 main table tbody td .status.active{    
     color: var(--color-status-good);
-    /* background-color: var(--color-status-good);*/
+    /* color: white;
+    background-color: var(--color-status-good); */
 }
 
 main table tbody td .status.pay{
     color: var(--color-status-pay);
-    /* background-color: var(--color-status-pay);*/
+    /* background-color: var(--color-status-pay);
+    color: white; */
 }
 
-main table tbody td .status.pending{   
-    color: var(--color-status-pending); 
-    /* background-color: var(--color-status-pending);*/
+main table tbody td .status.expiring{   
+    color: var(--color-status-expiring); 
+    /* background-color: var(--color-status-expiring);
+    color: white; */
 }
 
 main table tbody td .status.inactive{
     color: var(--color-status-inactive);
-    /* background-color: var(--color-status-pending);*/
+    /* background-color: var(--color-status-pending);
+    color: white; */
+}
+
+main table tbody td .status.unkown{
+    color: var(--color-status-inactive);
+    /* background-color: var(--color-status-inactive);
+    color: white; */
 }

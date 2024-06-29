@@ -3,14 +3,14 @@ aside{
     padding-top: 1.5rem;
     padding-left: 2rem;
 
-    transition: all 0.3s ease-in-out;
+    /* transition: all 0.3s ease-in-out; */
 
     & .top .logo h2 {    
         /* transition: all 0.3s ease-in-out; */
     }
 
     & .sidebar h3{
-        transition: all 0.3s ease-in-out;
+        /* transition: all 0.3s ease-in-out; */
     }
 }
 
@@ -20,7 +20,7 @@ aside{
 
     & .top{
         padding-left: 30px;
-        /* transition: all 0.3s ease-in-out; */
+        /* transition: padding-left 0.3s ease-in-out; */
     }
 
     & .top .logo h2 {
@@ -30,7 +30,7 @@ aside{
 
     & .sidebar h3{
         display: none;
-        transition: all 0.3s ease-in-out;
+        /* transition: all 0.3s ease-in-out; */
     }
 }
 
@@ -41,7 +41,8 @@ aside .top{
     justify-content: space-between;
 
     width: 100%;
-    transition: all 0.3s ease-in-out; /* GOOD - WORKING  */
+    /* GOOD - WORKING  */
+    transition: padding 0.3s ease-in-out;
 }
 
 aside .logo{
@@ -53,22 +54,6 @@ aside .logo img{
     width: 2rem;
     height: 2rem;
 }
-
-/* Close */
-/* aside .top button.menu-btn{
-    position: absolute;    
-    right: -30%;
-    background: var(--color-background);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--color-black);
-}
-
-aside .top button.menu-btn:hover{
-    cursor: pointer;
-} */
-/* - Close -  */
 
 aside .sidebar{
     display: flex;

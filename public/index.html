@@ -34,6 +34,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>IKA Dashboard</title>
+
+    <script>
+      // IMPORTANT: set this in <HEAD> top before any other tag.
+      const setTheme = (theme) => {
+        theme ??= localStorage.theme || "light";
+        document.documentElement.dataset.theme = theme;
+        localStorage.theme = theme;
+      };
+      setTheme();
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

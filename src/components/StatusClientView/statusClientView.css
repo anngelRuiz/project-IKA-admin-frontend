@@ -1,0 +1,37 @@
+
+.viewClients .status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  
+    width: 150px;
+    height: 30px;
+  
+    border-radius: var(--border-radius-1);
+    color: white; /*  NOT CHANGE TO VAR */
+  }
+  
+  .viewClients .status span:first-of-type {
+    font-size: 1rem;
+  }
+  
+  .viewClients .status.active {
+    background-color: var(--color-status-good);
+  }
+  
+  .viewClients .status.pay {
+    background-color: var(--color-status-pay);
+  }
+  
+  .viewClients .status.expiring{
+    background-color: var(--color-status-expiring);
+  }
+  
+  .viewClients .status.inactive {
+    background-color: var(--color-status-inactive);
+  }
+
+  .viewClients .status.unkown {
+    background-color: var(--color-status-inactive);
+  }

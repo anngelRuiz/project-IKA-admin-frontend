@@ -7,9 +7,11 @@ import Clients from './components/Dashboard/Clients/Clients';
 import AboutUs from './components/AboutUs/AboutUs';
 import ContactUs from './components/ContactUs/ContactUs';
 import ViewClient from './components/Dashboard/Clients/ViewClient/ViewClient';
+import ViewClient2 from './components/Dashboard/Clients/ViewClient/ViewClient copy';
 import AddClient from './components/Dashboard/Clients/AddClient/AddClient';
 import Top from './components/Top/Top';
 import NotFound from './components/NotFound/NotFound';
+import { LoadingProvider } from './context/LoadingContext ';
 import { ThemeProvider } from './context/theme-context';
 import { useTheme } from './context/theme-context';
 
@@ -31,6 +33,7 @@ const Layout = () => {
 
 
   return (
+    <LoadingProvider>
     <div data-theme="light" className={`mainContainer ${isSidebarActive ? 'collapsed' : ''}`}>
         {!isLoginPage && <Sidebar isSidebarActive={isSidebarActive} toggleSidebar={toggleSidebar} />}
         <div className='rightContainer'>
@@ -41,6 +44,7 @@ const Layout = () => {
         </div>
         
       </div>
+    </LoadingProvider>
   );
 };
 
@@ -54,7 +58,8 @@ function App() {
               <Route path="/clients" Component={Clients}/>
               <Route path="/aboutUs" Component={AboutUs}/>
               <Route path="/contactUs" Component={ContactUs}/>
-              <Route path="/viewClient" Component={ViewClient}/>
+              <Route exact  path="/clients/:clientId" Component={ViewClient}/>
+              {/* <Route path="/viewClient2" Component={ViewClient2}/> */}
               <Route path="/addClient" Component={AddClient}/>
               <Route path="*" element={<NotFound/>}/>
             </Route>

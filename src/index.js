@@ -8,6 +8,7 @@ root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
+  //React StrictMode renders components twice on dev server
 );
 
 // If you want to start measuring performance in your app, pass a function

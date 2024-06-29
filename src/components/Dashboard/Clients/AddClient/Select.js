@@ -1,6 +1,6 @@
 import {useState} from 'react';
-import clientWomanImg from '../../../../images/users-profile/client-woman.png';
-import clientManImg from '../../../../images/users-profile/client-man.png';
+import clientWomanImg from '../../../../images/users-profile/client-woman-1.png';
+import clientManImg from '../../../../images/users-profile/client-man-1.png';
 import './select.css';
 
 const Select = ({ setAvatarUrl }) => {

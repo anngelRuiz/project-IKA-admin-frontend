@@ -1,0 +1,38 @@
+
+span.tooltiptext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  opacity: 0;
+
+  width: 50px;
+  height: 20px;
+
+  background-color: #202328;
+  color: #fff;
+  font-size: 8px;
+  border-radius: 6px;
+
+  position: absolute;
+  right: -55px;
+  z-index: 1;
+
+  transition: opacity 500ms ease-in-out;
+}
+  
+.statusBox:hover span.tooltiptext {
+  opacity: 1;
+}
+
+/* Left Arrow */
+span.tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #202328 transparent transparent;
+}
