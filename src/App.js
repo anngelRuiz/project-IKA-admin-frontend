@@ -11,6 +11,7 @@ import ViewClient2 from './components/Dashboard/Clients/ViewClient/ViewClient co
 import AddClient from './components/Dashboard/Clients/AddClient/AddClient';
 import Top from './components/Top/Top';
 import NotFound from './components/NotFound/NotFound';
+import UnderConstruction from './components/UnderConstruction/UnderConstruction';
 import { LoadingProvider } from './context/LoadingContext ';
 import { ThemeProvider } from './context/theme-context';
 import { useTheme } from './context/theme-context';
@@ -54,12 +55,11 @@ function App() {
       <Router>
         <Routes>
               <Route path="/" element={<Layout />}>
-              <Route path="/dashboard" Component={Dashboard}/>
+              <Route path="/dashboard" Component={UnderConstruction}/>
               <Route path="/clients" Component={Clients}/>
               <Route path="/aboutUs" Component={AboutUs}/>
               <Route path="/contactUs" Component={ContactUs}/>
               <Route exact  path="/clients/:clientId" Component={ViewClient}/>
-              {/* <Route path="/viewClient2" Component={ViewClient2}/> */}
               <Route path="/addClient" Component={AddClient}/>
               <Route path="*" element={<NotFound/>}/>
             </Route>

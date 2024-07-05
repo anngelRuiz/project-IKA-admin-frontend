@@ -1,6 +1,6 @@
 .containerForm{
-  width: 80%;
-  background-color: var(--color-white);  
+  width: 65%;
+  background-color: var(--color-white);
   border-radius: var(--border-radius-2);
 
   box-shadow: var(--box-shadow);
@@ -22,7 +22,12 @@ form.formAddClient {
     row-gap: 10px;
     width: 100%;
     padding: 15px 15px;
-    
+
+    font-weight: 600;
+
+    & .input-error{
+      border: 1px solid #fa5a5a;
+    }
 }
 
 form.formAddClient > :last-child {
@@ -32,9 +37,34 @@ form.formAddClient > :last-child {
 form.formAddClient .inputGroup{
     display: flex;
     flex-direction: column;
-    /* margin: 10px 0; */
+    
+
+    height: auto;
+    gap: 10px;
     margin: 10px 0 5px 0;
-    height: 70px;
+    
+    
+
+    & .groupRadios{
+      display: flex;
+      align-items: center;
+
+      height: 35px;
+
+      padding-left: 20px;
+
+      color: var(--color-dark-variant);
+      font-weight: 500;
+
+      border-radius: var(--border-radius-1);
+
+
+      & input[type="radio"], label{
+        margin: 0 5px 0 5px;
+        cursor: pointer;
+        vertical-align: middle;
+      }
+    }
 }
 
 @media (max-width: 1024px){
@@ -48,15 +78,17 @@ form.formAddClient .inputGroup{
   }
 }
 
-form.formAddClient input, select{
+form.formAddClient input:not([type="radio"]), select{
     width: 100%;
-    height: 40px;
-    background-color: var(--color-white);
+    height: 35px;
+    background-color: var(--color-input-bg);
     padding-left: 15px;
     border-radius: var(--border-radius-1);
-    border: 1px solid var(--color-border);
+    outline: 2px solid var(--color-input-outline);
+    
     font-weight: 300;
     color: var(--color-dark);
+    text-transform: capitalize;
 
     & option:not(:first-of-type) {
       color: var(--color-dark);
@@ -66,6 +98,11 @@ form.formAddClient input, select{
       color: var(--color-dark-variant);
     }
 }
+
+form.formAddClient input[type="email"]{
+  text-transform: lowercase!important;
+}
+
 
 form.formAddClient input::placeholder , select {
   color:var(--color-dark-variant);
@@ -147,12 +184,14 @@ form.formAddClient input[type="date"]::-webkit-calendar-picker-indicator:hover {
   transition: opacity 0.5s ease-in-out;
 
   & img{
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     margin-right: 10px;
   }
   
 }
+
+/* TO DELETE */
 
 .addClientView .error-message {
   color: #fa5a5a;
@@ -172,7 +211,8 @@ form.formAddClient .field-warning input,form.formAddClient .field-warning select
 }
 
 form.formAddClient .inputGroup span.optional{
-  visibility: hidden;
+  font-size: 0.7rem;
+  /* visibility: hidden; */
 }
 
 /* form.formAddClient input[type="file"]{

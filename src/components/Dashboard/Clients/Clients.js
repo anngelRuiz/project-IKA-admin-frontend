@@ -4,6 +4,7 @@ import './clients.css';
 import axios from 'axios';
 import {getRandomImage} from '../../../utils/imageUtils';
 import ClientNotFound from './ClientNotFound/ClientNotFound';
+import FilterPopup from '../../filterPopup/filterPopup';
 import StatusClient from '../../StatusClient/StatusClient';
 
 const Clients = () => {
@@ -12,17 +13,19 @@ const Clients = () => {
     const [searchInput, setSearchInput] = useState('');
     const [filteredClients, setFilteredClients] = useState(clients);
     const [showClearButton, setShowClearButton] = useState(false);
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+    const [selectedStatusFilters, setSelectedStatusFilters] = useState([]);
 
     const navigate = useNavigate ();
 
     const fetchClients = async () => {
         try{
-            console.log("Fetching clients");
             const response = await axios.get('http://localhost:8080/api/clients');
             if(response.status === 200){
                 setClients(response.data);
                 setFilteredClients(response.data);
-                console.log(response.data);
+                // console.log(response.data);
             }else{
                 console.error('Failed to fetch clients', response.statusText);
             }
@@ -52,22 +55,61 @@ const Clients = () => {
         setShowClearButton(false);
     };
 
+    const handleFilterPopup = () =>{
+        setIsFilterOpen(!isFilterOpen);
+    };
+
+    // Fetch clients (called once)
     useEffect(() => {
         fetchClients();
-    }, []); // Run once on component mount
+    }, []); // Called once on mount
+
+    useEffect(() => {
+        
+        console.log('Filter status selected:' + selectedStatusFilters);
+        if (selectedStatusFilters.length > 0) {
+            const filtered = clients.filter(client => selectedStatusFilters.includes(client.status));
+
+
+            setFilteredClients(filtered);
+            console.log('filtered Clients by status: ' + selectedStatusFilters + ' lenght: ' + filtered);
+        } else {
+            setFilteredClients(clients);
+        }
+
+        //fetchClients();
+        console.log('Current state2: ' + isFilterOpen);
+    }, [selectedStatusFilters]);
 
     return(
         <div className="containerCenterY clientsView">
                     <div className="containerClients">
                         <h2 className="clientsTitle">Climbers</h2>
                         <div className='clientsHeader'>
-                            <div className="searchBox">
-                                <span className="material-icons-sharp">search</span>
-                                <input className="seachInput" ype="text" placeholder="Search climber" value={searchInput} onChange={handleSearch}/>
-                                <button className={`clearInputButton ${showClearButton ? 'show' : ''}`} type="reset" aria-label="Clear search" title="Clear seach" onClick={clearInput}>x</button>
+                            <div className='optionsHeader'>
+                                <div className="searchBox">
+                                    <span className="material-icons-sharp">search</span>
+                                    <input className="seachInput" ype="text" placeholder="Search climber" value={searchInput} onChange={handleSearch}/>
+                                    <button className={`clearInputButton ${showClearButton ? 'show' : ''}`} type="reset" aria-label="Clear search" title="Clear seach" onClick={clearInput}>x</button>
+                                </div>
+
+                                <div className='filterBox'>
+                                    <button className="filter" onClick={handleFilterPopup}><span className="material-icons-sharp">tune</span></button>                                    
+                                </div>
+                                
                             </div>
+
                             <Link className="button md addBtn" to="/addClient"><span className="material-icons-sharp">add</span></Link>
+
                         </div>
+
+                        <FilterPopup 
+                            isFilterOpen={isFilterOpen} 
+                            setIsFilterOpen={setIsFilterOpen} 
+                            selectedStatusFilters={selectedStatusFilters}
+                            setSelectedStatusFilters={setSelectedStatusFilters} 
+                        />
+
                         {filteredClients.length == 0 && searchInput.trim() !== ''? (<ClientNotFound/>) : (
                         <table cellspacing="0">
                             <thead>
@@ -75,8 +117,9 @@ const Clients = () => {
                                     {/* <th>ID Cient</th> */}
                                     <th>Photo</th>
                                     {/* <th>Client</th> */}
-                                    <th>First Name</th> 
-                                    <th>Last Name</th> 
+                                    {/* <th>First Name</th>  */}
+                                    {/* <th>Last Name</th> */}
+                                    <th>Full name</th>
                                     <th>Next Date</th>
                                     <th>Status</th>
                                 </tr>
@@ -88,8 +131,9 @@ const Clients = () => {
                                             <td className="client-photo">
                                                 <img src={getRandomImage(client.gender)} alt="Client Avatar" />
                                             </td>
-                                            <td>{client.firstName}</td>
-                                            <td>{client.lastName}</td>
+                                            {/* <td>{client.firstName}</td> */}
+                                            {/* <td>{client.lastName}</td> */}
+                                            <td>{client.fullName}</td>
                                             <td>{client.membershipNextDate}</td>
                                             <td>
                                                 <StatusClient status={client.status}></StatusClient>
