@@ -1,3 +1,7 @@
+main .containerCenterY.clientsView{
+    margin-bottom: 60px;
+}
+
 main .containerCenterY.clientsView h2.clientsTitle{
     margin: 0.8rem 0;
 }
@@ -10,6 +14,41 @@ main .clientsView .clientsHeader{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    & .optionsHeader{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        & .filterBox{
+            position: relative;
+
+            & .filter{
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+                width: 30px;
+                /* height: 15px; */
+                background-color: transparent;
+    
+                /* color: var(--color-primary); */
+                color: var(--color-dark-variant);
+    
+                cursor: pointer;
+    
+                transition: color 400ms ease;
+    
+                &:hover{
+                    color: var(--color-primary);
+                }
+    
+                & span{
+                    font-size: 20px;
+                }
+            }
+        }
+        
+    }
 }
 
 /* Add Button */
@@ -40,6 +79,7 @@ main .clientsHeader .addBtn:hover{
 main .containerCenterY.clientsView table{
     width: 100%;
     margin-top: 1.2rem;
+    padding-bottom: 15px;
 
     background-color: var(--color-white);
     

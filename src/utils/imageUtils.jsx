@@ -6,11 +6,11 @@ const womanImages = [clientWomanImg1];
 const manImages = [clientManImg1];
 
 export function getRandomImage(gender){
-    if (gender === 'Male') {
+    if (gender === 'MALE') {
         return manImages[Math.floor(Math.random() * manImages.length)];
-    } else if (gender === 'Female') {
+    } else if (gender === 'FEMALE') {
         return womanImages[Math.floor(Math.random() * womanImages.length)];
-    } else if (gender === 'Other') {
+    } else if (gender === 'OTHER') {
         return clientOtherImg;
     }
     return null;

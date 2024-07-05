@@ -1,26 +1,34 @@
 ### TODO:
+Agregar update
+Add filter date
+Cambiar imagnes de Login, Construcion, NotFoud, UserNotfound
 Integrate API calls
 
-Chear nombre completo para buscar clientes,
-Modificar search clients
+Checkar cLIENTES expirados, por expiarar faltando una semana,
 
-Checkar cLIENTES expirados
-
-Crear update client
+Crear view para actualizar, pagar
+Crear view para actualizar, fechas
 Ver como editar solo fechas
-Modificar add client
+Crear view para actualizar client
+Logica para eliminar client,
 
 
+Think about logic to check pending payments or warning paymnets 
 
-Logic to update:
-Status,
-NExt date
-
-Think about logic to check pending payments or warning paymnets
-Checar collapse button responsies and positions, bad positions 
+---------------------------------------------------------------
 
 Future:
+Infiniti scroll
 Create Dashboard
 Create pages components
 Reactor components
 Use Intefaces, jsx
+Fix filter close open 
+
+Integrate API calls
+CREATE *
+UPDATE 
+DELETE
+
+---------------------------------------------------------------
+

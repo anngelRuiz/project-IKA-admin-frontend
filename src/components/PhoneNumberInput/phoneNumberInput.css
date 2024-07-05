@@ -1,0 +1,57 @@
+.react-tel-input input.form-control {
+    border: none;
+    color: var(--color-dark-variant);
+    padding-left: 45px!important;
+}
+
+.react-tel-input .flag-dropdown{
+    background-color: var(--color-input-bg);
+    border: none;
+
+    &:hover{
+        background-color: var(--color-hover);
+    }
+
+    &.open .selected-flag {
+        background-color: var(--color-input-bg);
+    }
+}
+
+.react-tel-input .selected-flag {
+    width: 40px;
+}
+
+.react-tel-input .selected-flag .arrow {
+    border-top-color: var(--color-dark-variant);
+}
+
+/*  */
+
+.react-tel-input .country-list{
+    border-radius: var(--border-radius-1);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-white);
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+
+    & .country .dial-code {
+        font-weight: 300;
+        color:var(--color-dark-variant);
+    }
+
+    & .country:hover{
+        background: var(--color-input-bg);
+    }
+
+    & .country.highlight{
+        background: var(--color-input-bg);
+    }
+}
+
+/* When is missing, also change the country components to red */
+.form-control.input-error + .flag-dropdown,
+.form-control.input-error ~ .flag-dropdown {
+    border: 1px solid #fa5a5a!important;
+    border-right: 0px!important;
+}

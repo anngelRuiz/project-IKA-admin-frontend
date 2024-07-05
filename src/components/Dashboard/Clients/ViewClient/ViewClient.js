@@ -8,6 +8,12 @@ import Spinner from '../../../Spinner/Spinner';
 import Error from '../../../Error/Error ';
 import './viewClient.css'
 
+function capitalize(str) {
+  // Convert the string to lowercase first and then capitalize each word
+  return str.toLowerCase().replace(/\b\w/g, function (char) {
+    return char.toUpperCase();
+  });
+}
 const ViewClient = () => {
 
   const {clientId} = useParams();
@@ -98,7 +104,7 @@ const ViewClient = () => {
               </div>
               <div className="content-item">
                 <div className="label">Gender:</div>
-                <div className="detailValue">{client.gender}</div>
+                <div className="detailValue">{capitalize(client.gender)}</div>
               </div>
 
               <div className="content-item">
@@ -111,7 +117,7 @@ const ViewClient = () => {
               <p>Membership Details</p>
               <div className="content-item">
                 <div className="label">Membership Type:</div>
-                <div className="detailValue">{client.membershipType}</div>
+                <div className="detailValue">{capitalize(client.membershipType)}</div>
               </div>
               <div className="content-item">
                 <div className="label">Member since:</div>
@@ -131,7 +137,7 @@ const ViewClient = () => {
               <p>Contact Information</p>
               <div className="content-item">
                 <div className="label">Email:</div>
-                <div className="detailValue">{client.email}</div>
+                <div className="detailValue">{client.email ? client.email : 'NA'}</div>
               </div>
               <div className="content-item">
                 <div className="label">Phone:</div>
@@ -144,7 +150,7 @@ const ViewClient = () => {
               <p></p>
               <div className="content-item">
                 <div className="label">Emergency Contact</div>
-                <div className="detailValue">{client.emergencyContact}</div>
+                <div className="detailValue">{client.emergencyContact ? client.emergencyContact: 'NA'}</div>
               </div>
             </div>
             
@@ -152,7 +158,7 @@ const ViewClient = () => {
         </div>
       </div>
        ) : (
-        <div>No client data found.</div>
+        <div>Loading ...</div>
       )}
     </div>
   );

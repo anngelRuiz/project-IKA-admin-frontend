@@ -1,6 +1,7 @@
 import React from'react';
 import { Link } from 'react-router-dom';
 import logingImg from '../../images/login-bg.svg';
+import logingImg2 from '../../images/login-bg-2.svg';
 import logo from '../../images/logo-white.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faGoogle, faSquareTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -18,7 +19,7 @@ const Login = () => {
             </div>
             <div className='contiainerLogin'>
                 <div class="leftPanel">
-                    <img src={logingImg} alt="Campfire"></img>
+                    <img src={logingImg2} alt="Campfire"></img>
                 </div>
                 <div class="rightPanel">
                     <h5 className='mt20'>LOGIN</h5>

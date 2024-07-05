@@ -49,6 +49,12 @@ https://dribbble.com/shots/5252117-
 Spinner
 https://tobiasahlin.com/spinkit/
 
+Exaple dahsboard:
+https://dribbble.com/shots/24256588-DEXTools-Dashboard
+
+
+Example Filter:
+https://dribbble.com/shots/22848439-Advanced-Filter
 
 ### FlatIcons -Avatars
 woman backpack
@@ -67,3 +73,35 @@ https://www.flaticon.com/free-icon/traveler_7417912?term=backpacker+man&page=4&p
     <img src={getRan
     domImage(client.gender)} alt="Client Avatar" />
 </td>
+
+Magic UI Components
+
+
+
+Filter:
+https://dribbble.com/shots/22848439-Advanced-Filter
+
+Wave plugin para scaner tu pagina
+
+
+https://dribbble.com/shots/17119002-Contact-Forms-UI-Components
+
+https://www.youtube.com/watch?v=NaEk2zAmDE8
+https://www.javaguides.net/2018/06/restful-api-design-best-practices.html#google_vignette
+
+
+Resources:
+https://storyset.com/search - search?q=climb search?q=404
+https://freesets.vercel.app/icons
+https://component.gallery/components/
+
+
+May use:
+https://magicui.design/docs/components/meteors
+
+
+Check:
+https://primereact.org/calendar/
+https://primereact.org/skeleton/
+
+https://nextui.org/
